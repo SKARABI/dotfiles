@@ -19,11 +19,13 @@ white='\e[0;37m' # White
 # rbenv version | sed -e 's/ .*//'
 function rbenv_ps1 () {
   rbenv_ruby_version=`rbenv version | sed -e 's/ .*//'`
+
   printf $rbenv_ruby_version
 }
 
 function parse_git_branch {
   git_branch=`git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+
   if [ "$git_branch" ]; then
     printf "${color_off}on ${red}$git_branch"
   fi
@@ -42,9 +44,6 @@ export HISTSIZE=5000
 # Simple PS1
 PS1="\[${color_off}\]using \[${blue}\]\$(rbenv_ps1) \[${color_off}\]at\[${green}\] \\W \$(parse_git_branch) \n\\[${red}\]\$\[${color_off}\] "
 
-# Overwriting PATH for better homebrew compatibility
-PATH=$HOME/.homebrew/bin:/usr/local/bin:/usr/local/sbin:$PATH
-
 # Go \o/
 export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH/bin
@@ -60,11 +59,21 @@ source ~/.aliases
 # rbenv Configurations
 source ~/.rbenvrc
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+if which brew >/dev/null; then
+  # Overwriting PATH for better homebrew compatibility
+  PATH=$HOME/.homebrew/bin:/usr/local/bin:/usr/local/sbin:$PATH
+
+  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+  fi
 fi
 
 # Autostart tmux
 if [[ -z "$TMUX" ]]; then
   tmux -u new-session -s default -A
 fi
+
+key_file=~/code/.ssh/id_rsa
+
+# Add if not already added
+[[ -z $(ssh-add -L | grep $key_file) ]] && ssh-add $key_file
