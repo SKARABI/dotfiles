@@ -51,6 +51,7 @@ alias ss='spin serve'
 alias be='bundle exec'
 alias spa='sp spec'
 alias build_ctags='ctags -R -f ./.git/tags .'
+alias ls='ls --color'
 
 # CLI Tools
 alias finance='ledger -f ~/Dropbox/.finances.ldg'
