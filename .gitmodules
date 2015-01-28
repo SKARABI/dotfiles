@@ -1,0 +1,3 @@
+[submodule "components/selecta"]
+	path = components/selecta
+	url = git@github.com:garybernhardt/selecta.git

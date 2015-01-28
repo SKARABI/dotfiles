@@ -1,9 +1,10 @@
+set -o vi
+
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWSTASHSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWUPSTREAM="auto"
 
-# Colors
 color_off='\e[0m' # Text Reset
 black='\e[0;30m' # Black
 bright_black='\e[1;30m' # Black
@@ -16,7 +17,6 @@ cyan='\e[0;36m' # Cyan
 white='\e[0;37m' # White
 
 # Prompt with ruby version
-# rbenv version | sed -e 's/ .*//'
 function rbenv_ps1 () {
   rbenv_ruby_version=`rbenv version | sed -e 's/ .*//'`
 
@@ -31,49 +31,37 @@ function parse_git_branch {
   fi
 }
 
-# Tell things to be colourful
+PS1="\[${color_off}\]using \[${blue}\]\$(rbenv_ps1) \[${color_off}\]at\[${green}\] \\W \$(parse_git_branch) \n\\[${red}\]\$\[${color_off}\] "
+
 export CLICOLOR=1
 export GREP_COLOR="1;31"
 export GREP_OPTIONS='--color=auto'
 export LESS="-R"
+export EDITOR=vim
 export TERM=xterm-256color
-
-# Oversized history
 export HISTSIZE=5000
 
-# Simple PS1
-PS1="\[${color_off}\]using \[${blue}\]\$(rbenv_ps1) \[${color_off}\]at\[${green}\] \\W \$(parse_git_branch) \n\\[${red}\]\$\[${color_off}\] "
+export PATH=$HOME/.bin:$PATH
 
-# Go \o/
 export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH/bin
 
-# Default Editor
-export EDITOR=vim
-
-set -o vi
-
-# Call Aliases
 source ~/.aliases
-
-# rbenv Configurations
 source ~/.rbenvrc
 
+key_file=~/code/.ssh/id_rsa
+
+# Add SSH profile if not already added
+[[ -z $(ssh-add -L | grep $key_file) ]] && ssh-add $key_file
+
 if which brew >/dev/null; then
-  # Overwriting PATH for better homebrew compatibility
-  PATH=$HOME/.homebrew/bin:/usr/local/bin:/usr/local/sbin:$PATH
+  export PATH=$HOME/.homebrew/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
   fi
 fi
 
-# Autostart tmux
 if [[ -z "$TMUX" ]]; then
   tmux -u new-session -s default -A
 fi
-
-key_file=~/code/.ssh/id_rsa
-
-# Add if not already added
-[[ -z $(ssh-add -L | grep $key_file) ]] && ssh-add $key_file

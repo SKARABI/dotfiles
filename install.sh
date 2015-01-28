@@ -34,3 +34,5 @@ for name in *; do
   fi
 done
 
+ln -s $PWD/components/selecta/selecta $HOME/.bin/selecta
+
