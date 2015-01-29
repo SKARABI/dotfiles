@@ -65,3 +65,7 @@ fi
 if [[ -z "$TMUX" ]]; then
   tmux -u new-session -s default -A
 fi
+
+function cd_gem () {
+  cd $(bundle show "$1");
+}
