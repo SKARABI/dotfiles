@@ -34,5 +34,4 @@ for name in *; do
   fi
 done
 
-ln -s $PWD/components/selecta/selecta $HOME/.bin/selecta
-
+git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
