@@ -12,24 +12,18 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'Shougo/vimproc'
 
-NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'altercation/solarized', { 'rtp': 'vim-colors-solarized' }
 NeoBundle 'bling/vim-airline'
 NeoBundle 'briancollins/vim-jst'
-NeoBundle 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
 NeoBundle 'claco/jasmine.vim'
-NeoBundle 'edkolev/promptline.vim'
 NeoBundle 'evanmiller/nginx-vim-syntax'
 NeoBundle 'fatih/vim-go'
-NeoBundle 'garbas/vim-snipmate.git'
 NeoBundle 'groenewege/vim-less.git'
-NeoBundle 'honza/vim-snippets'
 NeoBundle 'itspriddle/vim-jquery.git'
 NeoBundle 'jtratner/vim-flavored-markdown.git'
 NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'ledger/vim-ledger'
 NeoBundle 'majutsushi/tagbar.git'
 NeoBundle 'mattn/gist-vim'
 NeoBundle 'mattn/webapi-vim'
@@ -52,8 +46,6 @@ NeoBundle 'tpope/vim-rails.git'
 NeoBundle 'tpope/vim-rake.git'
 NeoBundle 'tpope/vim-repeat.git'
 NeoBundle 'tpope/vim-surround.git'
-NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'vim-addon-mw-utils'
 NeoBundle 'vim-ruby/vim-ruby.git'
 
 call neobundle#end()
