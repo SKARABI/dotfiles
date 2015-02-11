@@ -15,7 +15,7 @@ endfunction
 
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
-nnoremap <leader>t :call SelectaCommand("find * -type f -not -path './vendor/bundle/*' -not -path './log/*'", "", ":e")<cr>
+nnoremap <leader>t :call SelectaCommand("file_list_for_selecta", "", ":e")<cr>
 
 function! SelectaBuffer()
   let buffers = map(range(1, bufnr("$")), 'bufname(bufnr(v:val))')

@@ -1,5 +1,10 @@
 #!/bin/sh
 
+git submodule init
+git submodule update
+
+cp components/selecta/selecta bin/selecta
+
 cutstring="DO NOT EDIT BELOW THIS LINE"
 
 for name in *; do

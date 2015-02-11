@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ -d .git ]; then
+  git ls-files
+else
+  find . -type f ! -path 'vendor/bundle/*' ! -path 'log/*' ! -path '*/tmp/*' ! -path '*/.git/*'
+fi
