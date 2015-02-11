@@ -49,12 +49,6 @@ export PATH=$PATH:$GOPATH/bin
 source ~/.aliases
 source ~/.rbenvrc
 
-key_file=~/code/.ssh/id_rsa
-if [ -f ~/code/.ssh/id_rsa ]; then
-  # Add SSH profile if not already added
-  [[ -z $(ssh-add -L | grep $key_file) ]] && ssh-add $key_file
-fi
-
 if which brew >/dev/null; then
   export PATH=$HOME/.homebrew/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
