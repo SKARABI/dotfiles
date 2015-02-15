@@ -52,6 +52,8 @@ alias be='bundle exec'
 alias spa='sp spec'
 alias build_ctags='ctags -R -f ./.git/tags .'
 alias ls='ls --color'
+alias nv='nvim'
+alias vim='nvim'
 
 # CLI Tools
 alias finance='ledger -f ~/Dropbox/.finances.ldg'

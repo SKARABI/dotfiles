@@ -1,40 +1,35 @@
-if has('vim_starting')
-  set nocompatible " Be iMproved
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
+" Note: Skip initialization for vim-tiny or vim-small.
+if !1 | finish | endif
 
-set encoding=utf-8
-set termencoding=utf-8
+if has('vim_starting')
+  if &compatible
+    set nocompatible
+  endif
+
+  set runtimepath+=~/.nvim/bundle/neobundle.vim/
+endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'Shougo/vimproc'
+let g:make = 'gmake'
+
+if system('uname -o') =~ '^GNU/'
+  let g:make = 'make'
+endif
+
+NeoBundle 'Shougo/vimproc.vim', { 'build': { 'unix': g:make } }
 
 NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'altercation/solarized', { 'rtp': 'vim-colors-solarized' }
 NeoBundle 'bling/vim-airline'
-NeoBundle 'briancollins/vim-jst'
-NeoBundle 'claco/jasmine.vim'
-NeoBundle 'evanmiller/nginx-vim-syntax'
-NeoBundle 'fatih/vim-go'
-NeoBundle 'groenewege/vim-less.git'
-NeoBundle 'itspriddle/vim-jquery.git'
 NeoBundle 'jtratner/vim-flavored-markdown.git'
 NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'majutsushi/tagbar.git'
 NeoBundle 'mattn/gist-vim'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mileszs/ack.vim'
-NeoBundle 'natw/keyboard_cat.vim'
-NeoBundle 'nono/vim-handlebars'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'rizzatti/dash.vim'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'tomtom/tlib_vim'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-bundler'
 NeoBundle 'tpope/vim-endwise.git'
@@ -52,5 +47,6 @@ call neobundle#end()
 
 filetype plugin indent on
 
-" Installation check.
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
 NeoBundleCheck

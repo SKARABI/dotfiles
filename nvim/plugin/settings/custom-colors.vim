@@ -4,4 +4,4 @@ hi! link htmlLink Include
 hi! CursorLine cterm=NONE gui=NONE
 hi! Visual ctermbg=233
 
-au VimEnter * so ~/.vim/plugin/settings/custom-colors.vim
+au VimEnter * so ~/.nvim/plugin/settings/custom-colors.vim
