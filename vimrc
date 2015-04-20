@@ -24,6 +24,7 @@ NeoBundle 'Shougo/vimproc.vim', { 'build': { 'unix': g:make } }
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'altercation/solarized', { 'rtp': 'vim-colors-solarized' }
 NeoBundle 'bling/vim-airline'
+NeoBundle 'cyphactor/vim-open-alternate'
 NeoBundle 'jtratner/vim-flavored-markdown.git'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'mattn/gist-vim'

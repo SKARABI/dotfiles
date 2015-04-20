@@ -5,5 +5,4 @@ nmap <silent> // :nohlsearch<CR>
 nmap <silent> ,n :NERDTreeToggle<CR>
 nmap <silent> ,f :NERDTreeFind<CR>
 
-" Dash Offiline docs
-nmap <silent> ,d :Dash<CR>
+nnoremap <leader>. :OpenAlternate<cr>
