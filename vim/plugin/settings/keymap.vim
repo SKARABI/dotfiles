@@ -6,3 +6,6 @@ nmap <silent> ,n :NERDTreeToggle<CR>
 nmap <silent> ,f :NERDTreeFind<CR>
 
 nnoremap <leader>. :OpenAlternate<cr>
+
+" Toggle set list
+nnoremap <leader>l :set list!<cr>

@@ -1,3 +1,14 @@
+" Load vimrc from current directory and disable unsafe commands in them
+set exrc
+set secure
+
+" Prevent Vim from clearing the scrollback buffer
+" http://www.shallowsky.com/linux/noaltscreen.html
+set t_ti= t_te=
+
+" Clear PAGER if Vim's Man function is needed
+let $PAGER=''
+
 " Line numbers are good, relative is better
 set relativenumber
 
@@ -50,7 +61,9 @@ filetype plugin on
 filetype indent on
 
 " Display tabs and trailing spaces visually
-set list listchars=tab:\ \ ,trail:·
+" set list listchars=tab:\ \ ,trail:·
+set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_,extends:❯,precedes:❮
+
 set nowrap
 set linebreak
 

@@ -1,3 +1,6 @@
+" Clear autocmds
+autocmd!
+
 " Note: Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
