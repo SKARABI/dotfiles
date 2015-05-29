@@ -16,3 +16,5 @@ brakeman.html
 sphinx.yml
 development_reload.rb
 vendor/cache
+tmux-workspace
+.nfs*

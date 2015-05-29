@@ -1,4 +1,4 @@
-set colorcolumn=100
+set colorcolumn=110
 set background=light
 
 colorscheme solarized

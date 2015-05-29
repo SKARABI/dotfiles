@@ -10,4 +10,5 @@
 --ignore-dir=tmp
 --ignore-dir=db/sphinx
 --ignore-dir=vendor/bundle/
+--ignore-dir=coverage
 --ignore-file=is:tags
