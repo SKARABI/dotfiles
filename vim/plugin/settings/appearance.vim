@@ -9,7 +9,7 @@ set cmdheight=1 " Set command line height (default)
 set title " Show the filename in the window titlebar
 set shortmess=atI " Don't show the Vim intro message"
 
-"tell the term has 256 colors
+" tell the term has 256 colors
 set t_Co=256
 
 if has("gui_running")
@@ -22,7 +22,7 @@ if has("gui_running")
   set columns=190
   set guifont=Inconsolata\ for\ Powerline:h18
 else
-  let g:solarized_termtrans = 1
+  let g:solarized_termtrans = 0
 
   set laststatus=2
 endif
