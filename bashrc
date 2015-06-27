@@ -1,9 +1,25 @@
-set -o vi
+# Base16 Shell
+function colorscheme () {
+  BASE16_BG=$1
+  BASE16_THEME=base16-$2
 
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWSTASHSTATE=1
-GIT_PS1_SHOWUNTRACKEDFILES=1
-GIT_PS1_SHOWUPSTREAM="auto"
+  BASE16_SHELL="$HOME/.config/base16-shell/${BASE16_THEME}.${BASE16_BG}.sh"
+
+  [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+  echo $BASE16_SHELL > ~/.term_colorscheme
+
+  cat <<NVIM_COLORS > ~/.nvim_colorscheme
+  set background=$BASE16_BG
+  colorscheme $BASE16_THEME
+NVIM_COLORS
+}
+
+if [ -f ~/.term_colorscheme ]; then
+  source ~/.term_colorscheme
+else
+  colorscheme dark default
+fi
 
 color_off='\e[0m' # Text Reset
 black='\e[0;30m' # Black
@@ -33,6 +49,8 @@ function parse_git_branch {
 
 PS1="\[${color_off}\]using \[${blue}\]\$(rbenv_ps1) \[${color_off}\]at\[${green}\] \\W \$(parse_git_branch) \n\\[${red}\]\$\[${color_off}\] "
 
+set -o vi
+
 export CLICOLOR=1
 export GREP_COLOR="1;31"
 export GREP_OPTIONS='--color=auto'
@@ -60,7 +78,3 @@ fi
 if [[ -z "$TMUX" ]]; then
   tmux -u new-session -s default -A
 fi
-
-function cd_gem () {
-  cd $(bundle show "$1");
-}
