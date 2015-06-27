@@ -38,5 +38,3 @@ for name in *; do
     fi
   fi
 done
-
-git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim

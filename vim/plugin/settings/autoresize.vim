@@ -1,1 +1,0 @@
-set winwidth=84

@@ -9,6 +9,7 @@ tmp/**/*
 !tmp/cache/.keep
 vendor/bundler_gems
 vim/.netrwhist
+nvim/.netrwhist
 zeus.json
 public/rbp.html
 .ruby-version

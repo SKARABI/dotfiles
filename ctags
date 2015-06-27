@@ -2,3 +2,4 @@
 --tag-relative=yes
 --exclude=.git
 --exclude=vendor/bundle
+--exclude=vendor/assets
