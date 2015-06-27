@@ -1,5 +1,0 @@
-AwesomePrint.defaults = {
-  color: {
-    hash: :black
-  }
-}
