@@ -18,6 +18,17 @@
 " - tpope/vim-fugitive
 "   Git wrapper so awesome, it should be illegal
 "
+" - tpope/vim-flagship
+"   Configurable and extensible tab line and status line
+
+  function! flagship#tabmodified(...) abort
+    let cnt = flagship#tabcountbufvar('&modified', a:0 ? a:1 : v:lnum)
+    return repeat('*', cnt)
+  endfunction
+
+  let g:tabprefix=' ~»'
+  let g:tablabel = "%N %{flagship#tabcwds('shorten',',')}%{flagship#tabmodified()}"
+
 " - nathanaelkane/vim-indent-guides
 "   Visually displaying indent levels in code
 
@@ -25,6 +36,8 @@
   let g:indent_guides_start_level=2
   let g:indent_guides_guide_size=1
   let g:indent_guides_enable_on_vim_startup=1
+
+  autocmd User Flags call Hoist("global", "%{&ignorecase ? '[IC]' : ''}")
 
 " - chriskempson/base16-vim
 "   Base16 for Vim
@@ -97,6 +110,9 @@
 " ###################
 " Appearence settings
 " ###################
+
+  " Always show tabline
+  set showtabline=2
 
   " Help your brain to calculate line changes
   set relativenumber
