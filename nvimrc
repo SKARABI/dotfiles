@@ -207,5 +207,16 @@
 
   " Custom colors
   hi! LineNR ctermbg=NONE
-  hi! IndentGuidesOdd ctermbg=19
-  hi! IndentGuidesEven ctermbg=18
+
+  if &g:background == 'dark'
+    " Indent-guides
+    hi! IndentGuidesOdd ctermbg=18
+    hi! IndentGuidesEven ctermbg=18
+  else
+    " Statusline
+    hi! Statusline ctermbg=19 ctermfg=21
+
+    " Indent-guides
+    hi! IndentGuidesOdd ctermbg=21
+    hi! IndentGuidesEven ctermbg=21
+  endif

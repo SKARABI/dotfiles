@@ -9,6 +9,8 @@ function colorscheme () {
 
   echo $BASE16_SHELL > ~/.term_colorscheme
 
+  tmux source-file $HOME/.tmux_$BASE16_BG  > /dev/null;
+
   cat <<NVIM_COLORS > ~/.nvim_colorscheme
   set background=$BASE16_BG
   colorscheme $BASE16_THEME
@@ -55,7 +57,7 @@ export CLICOLOR=1
 export GREP_COLOR="1;31"
 export GREP_OPTIONS='--color=auto'
 export LESS="-R"
-export EDITOR=vim
+export EDITOR=nvim
 export TERM=xterm-256color
 export HISTSIZE=5000
 
