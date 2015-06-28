@@ -3,8 +3,6 @@
 git submodule init
 git submodule update
 
-cp components/selecta/selecta bin/selecta
-
 cutstring="DO NOT EDIT BELOW THIS LINE"
 
 for name in *; do
@@ -38,3 +36,6 @@ for name in *; do
     fi
   fi
 done
+
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install

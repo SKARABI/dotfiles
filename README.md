@@ -4,30 +4,39 @@ Focused simple dotfiles for linux ruby developers based on thoughtbots dotfiles.
 
 ## Features
 
-- Fully featured vim configuration
+- Awesome dry and performantvim configuration
+- Comprehensive Bash config
+- Well integrated TMUX
+- [Base16](http://chriskempson.github.io/base16/)
+- [FZF](https://github.com/junegunn/fzf/)
 
 ## Instalation
 
 ```shell
-git clone git://github.com/brennovich/dotfiles.git
+git clone --recursive git://github.com/brennovich/dotfiles.git
 cd dotfiles
 ./install
 ```
 
-### VIM Files
+## Features
 
-1. Install Neobundle:
+### Bash
 
-```shell
-git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+![Shell](https://dl.dropboxusercontent.com/u/12049697/bash.png)
+
+#### `colorscheme`
+
+Set a Base16 variation in both vim and shell:
+
+```sh
+# background[dark,light] variation
+coloscheme light default
+coloscheme light eighties
 ```
 
-2. Install your bundle:
+### VIM
 
-```shell
-vim +NeoBundleInstall
-```
+Actually [NeoVIM](http://neovim.org)!
 
-- Clean bash_profile
-- Nice git stuff
-- `gemrc` install gem without docs
+![VIM](https://dl.dropboxusercontent.com/u/12049697/neovim.png)
+

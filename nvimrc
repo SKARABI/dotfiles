@@ -1,6 +1,30 @@
 " Keep it simple, just use 'Pathogen: manage your runtimepath'
   execute pathogen#infect()
 
+" ################
+" General settings
+" ################
+  syntax on
+  filetype plugin indent on
+
+  " Default leader key
+  let mapleader=','
+
+  " Show invisibles
+  set list
+
+  " Reload files changed outside vim
+  set autoread
+
+  " Show current mode down the bottom
+  set showmode
+
+  " The encoding displayed
+  set encoding=utf-8
+
+  " The encoding written to file
+  set fileencoding=utf-8
+
 " Bundled plugins
 "
 " - tpope/vim-sensible
@@ -74,23 +98,42 @@
 
   autocmd FileType ruby compiler ruby
 
-" ################
-" General settings
-" ################
-  syntax on
-  filetype plugin indent on
+" - othree/html5.vim
+"   HTML5 omnicomplete and syntax
 
-  " Default leader key
-  let mapleader=','
+" - junegunn/fzf
+"   A command-line fuzzy finder written in Go
 
-  " Show invisibles
-  set list
+  set rtp+=~/.fzf
 
-  " Reload files changed outside vim
-  set autoread
+  nnoremap <leader>p :FZF! --color=bw<cr>
 
-  " Show current mode down the bottom
-  set showmode
+  " Select and open buffer
+  function! s:buflist()
+    redir => ls
+    silent ls
+    redir END
+    return split(ls, '\n')
+  endfunction
+
+  function! s:bufopen(e)
+    execute 'buffer' matchstr(a:e, '^[ 0-9]*')
+  endfunction
+
+  nnoremap <silent> <Leader>b :call fzf#run({
+  \   'source':  reverse(<sid>buflist()),
+  \   'sink':    function('<sid>bufopen'),
+  \   'options': '--color=bw',
+  \   'down':    len(<sid>buflist()) + 2
+  \ })<CR>
+
+  command! -bar FZFTags if !empty(tagfiles()) | call fzf#run({
+  \   'source': "sed '/^\\!/d;s/\t.*//' " . join(tagfiles()) . ' | uniq',
+  \   'sink':   'tag',
+  \   'options': '--color=bw',
+  \ }) | else | echo 'Preparing tags' | call system('ctags -R') | FZFTag | endif
+
+  nnoremap <leader>t :FZFTags<cr>
 
 " ################
 " Editing settings
@@ -127,6 +170,7 @@
 
   " Wrap lines is for fools
   set nowrap
+  set linebreak
 
 " ###################
 " Appearence settings
@@ -147,6 +191,9 @@
 
   " Highlight current line
   set cursorline
+
+  " Column ruler
+  set colorcolumn=110
 
   " Custom colors
   hi! LineNR ctermbg=NONE

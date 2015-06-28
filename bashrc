@@ -78,3 +78,4 @@ fi
 if [[ -z "$TMUX" ]]; then
   tmux -u new-session -s default -A
 fi
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
