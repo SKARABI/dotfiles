@@ -124,16 +124,26 @@
   \   'source':  reverse(<sid>buflist()),
   \   'sink':    function('<sid>bufopen'),
   \   'options': '--color=bw',
-  \   'down':    len(<sid>buflist()) + 2
+  \   'down':    20,
   \ })<CR>
 
+  " Jump to tags through whole project
   command! -bar FZFTags if !empty(tagfiles()) | call fzf#run({
   \   'source': "sed '/^\\!/d;s/\t.*//' " . join(tagfiles()) . ' | uniq',
   \   'sink':   'tag',
   \   'options': '--color=bw',
   \ }) | else | echo 'Preparing tags' | call system('ctags -R') | FZFTag | endif
 
-  nnoremap <leader>t :FZFTags<cr>
+  nnoremap <leader>tp :FZFTags<CR>
+
+  command! FZFTagFile if !empty(tagfiles()) | call fzf#run({
+  \   'source': "cat " . tagfiles()[0] . ' | grep "' . expand('%:@') . '"' . " | sed -e '/^\\!/d;s/\t.*//' ". ' |  uniq',
+  \   'sink':   'tag',
+  \   'options':  '--color=bw',
+  \   'down':     20,
+  \ }) | else | echo 'No tags' | endif
+
+  nnoremap <leader>t :FZFTagFile<cr>
 
 " ################
 " Editing settings
