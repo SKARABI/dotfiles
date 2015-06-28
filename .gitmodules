@@ -1,3 +1,6 @@
 [submodule "components/selecta"]
 	path = components/selecta
 	url = git@github.com:garybernhardt/selecta.git
+[submodule "config/base16-shell"]
+	path = config/base16-shell
+	url = git@github.com:chriskempson/base16-shell.git
