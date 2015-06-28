@@ -4,3 +4,45 @@
 [submodule "config/base16-shell"]
 	path = config/base16-shell
 	url = git@github.com:chriskempson/base16-shell.git
+[submodule "nvim/bundle/base16-vim"]
+	path = nvim/bundle/base16-vim
+	url = git@github.com:chriskempson/base16-vim.git
+[submodule "nvim/bundle/vim-flagship"]
+	path = nvim/bundle/vim-flagship
+	url = git@github.com:tpope/vim-flagship.git
+[submodule "nvim/bundle/vim-sensible"]
+	path = nvim/bundle/vim-sensible
+	url = git@github.com:tpope/vim-sensible.git
+[submodule "nvim/bundle/vim-vinegar"]
+	path = nvim/bundle/vim-vinegar
+	url = git@github.com:tpope/vim-vinegar.git
+[submodule "nvim/bundle/vim-eunuch"]
+	path = nvim/bundle/vim-eunuch
+	url = git@github.com:tpope/vim-eunuch.git
+[submodule "nvim/bundle/vim-fugitive"]
+	path = nvim/bundle/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git
+[submodule "nvim/bundle/vim-commentary"]
+	path = nvim/bundle/vim-commentary
+	url = git@github.com:tpope/vim-commentary.git
+[submodule "nvim/bundle/vim-endwise"]
+	path = nvim/bundle/vim-endwise
+	url = git@github.com:tpope/vim-endwise.git
+[submodule "nvim/bundle/vim-sleuth"]
+	path = nvim/bundle/vim-sleuth
+	url = git@github.com:tpope/vim-sleuth.git
+[submodule "nvim/bundle/vim-indent-guides"]
+	path = nvim/bundle/vim-indent-guides
+	url = git@github.com:nathanaelkane/vim-indent-guides.git
+[submodule "nvim/bundle/vim-ruby"]
+	path = nvim/bundle/vim-ruby
+	url = git@github.com:vim-ruby/vim-ruby.git
+[submodule "nvim/bundle/vim-surround"]
+	path = nvim/bundle/vim-surround
+	url = git@github.com:tpope/vim-surround.git
+[submodule "nvim/bundle/vim-ragtag"]
+	path = nvim/bundle/vim-ragtag
+	url = git@github.com:tpope/vim-ragtag.git
+[submodule "nvim/bundle/vim-repeat"]
+	path = nvim/bundle/vim-repeat
+	url = git@github.com:tpope/vim-repeat.git

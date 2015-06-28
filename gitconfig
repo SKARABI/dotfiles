@@ -94,7 +94,7 @@
   default = tracking
 [core]
   autocrlf = false
-  editor = vim -f
+  editor = nvim -f
   excludesfile = ~/.gitignore
 [diff]
   # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject

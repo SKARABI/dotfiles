@@ -21,6 +21,15 @@
 " - tpope/vim-commentary
 "   Comment stuff out
 "
+" - tpope/vim-surround
+"   Quoting/parenthesizing made simple
+"
+" - tpope/vim-ragtag
+"   Ghetto HTML/XML mappings
+
+  let g:ragtag_global_maps=1
+
+"
 " - tpope/vim-endwise
 "   wisely add 'end' in ruby, endfunction/endif/more in vim script, etc
 "
@@ -60,6 +69,10 @@
 "   Base16 for Vim
 "   Used in Appearence section
 "
+" - vim-ruby/vim-ruby
+"   Vim/Ruby Configuration Files
+
+  autocmd FileType ruby compiler ruby
 
 " ################
 " General settings
