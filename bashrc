@@ -7,7 +7,7 @@ function colorscheme () {
 
   [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
-  echo $BASE16_SHELL > ~/.term_colorscheme
+  echo "colorscheme $BASE16_BG $2" > ~/.term_colorscheme
 
   tmux source-file $HOME/.tmux_$BASE16_BG  > /dev/null;
 
