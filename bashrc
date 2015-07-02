@@ -80,4 +80,7 @@ fi
 if [[ -z "$TMUX" ]]; then
   tmux -u new-session -s default -A
 fi
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_COMMAND='(git ls-tree -r --name-only HEAD ||
+  find * -name ".*" -prune -o -type f -print -o -type l -print) 2> /dev/null'
