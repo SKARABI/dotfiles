@@ -70,14 +70,13 @@
 
   set statusline=\ » " Firulinha
   set statusline+=\ %t\  " Filename
-  set statusline+=%y " File type
-  set statusline+=[%{strlen(&fenc)?&fenc:'none'} " File encoding
-  set statusline+=\ %{&ff}] " File ending
 
   set statusline+=%= " Separator
 
-  set statusline+=[%n] " Buffer number
-  set statusline+=\ line\ %l\/%L " Line info
+  set statusline+=%y " File type
+  set statusline+=[%{strlen(&fenc)?&fenc:'none'}] " File encoding
+  set statusline+=[%{&ff}] " File ending
+  set statusline+=\ line\ %l\:%c\/%L " Line info
   set statusline+=\ %P\  " Perc. file
   set statusline+=\ «\  " Firula
 
