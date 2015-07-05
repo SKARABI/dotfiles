@@ -203,6 +203,7 @@
 
   " Custom colors
   hi! LineNR ctermbg=NONE
+  hi! TabLineSel ctermfg=12
 
   if &g:background == 'dark'
     " Indent-guides
