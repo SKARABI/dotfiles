@@ -105,7 +105,7 @@
 
   set rtp+=~/.fzf
 
-  nnoremap <leader>p :FZF! --color=bw<cr>
+  nnoremap <leader>p :FZF!<cr>
 
   " Select and open buffer
   function! s:buflist()
@@ -122,7 +122,6 @@
   nnoremap <silent> <Leader>b :call fzf#run({
   \   'source':  reverse(<sid>buflist()),
   \   'sink':    function('<sid>bufopen'),
-  \   'options': '--color=bw',
   \   'down':    20,
   \ })<CR>
 
@@ -130,7 +129,6 @@
   command! -bar FZFTags if !empty(tagfiles()) | call fzf#run({
   \   'source': "sed '/^\\!/d;s/\t.*//' " . join(tagfiles()) . ' | uniq',
   \   'sink':   'tag',
-  \   'options': '--color=bw',
   \ }) | else | echo 'Preparing tags' | call system('ctags -R') | FZFTag | endif
 
   nnoremap <leader>tp :FZFTags<CR>
@@ -138,7 +136,6 @@
   command! FZFTagFile if !empty(tagfiles()) | call fzf#run({
   \   'source': "cat " . tagfiles()[0] . ' | grep "' . expand('%:@') . '"' . " | sed -e '/^\\!/d;s/\t.*//' ". ' |  uniq',
   \   'sink':   'tag',
-  \   'options':  '--color=bw',
   \   'down':     20,
   \ }) | else | echo 'No tags' | endif
 
