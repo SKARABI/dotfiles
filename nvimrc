@@ -53,6 +53,9 @@
 " - tpope/vim-surround
 "   Quoting/parenthesizing made simple
 "
+" - tpope/vim-unimpaired
+"   unimpaired.vim: pairs of handy bracket mappings
+"
 " - tpope/vim-ragtag
 "   Ghetto HTML/XML mappings
 
