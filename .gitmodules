@@ -52,3 +52,6 @@
 [submodule "nvim/bundle/vim-rbenv"]
 	path = nvim/bundle/vim-rbenv
 	url = git@github.com:tpope/vim-rbenv.git
+[submodule "nvim/bundle/vim-projectionist"]
+	path = nvim/bundle/vim-projectionist
+	url = git://github.com/tpope/vim-projectionist.git

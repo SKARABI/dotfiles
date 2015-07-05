@@ -38,8 +38,8 @@
 " - tpope/vim-vinegar
 "   Better netrw handling
 "
-" - tpope/vim-eunuch
-"   Helpers for UNIX
+" - tpope/vim-projectionist
+"   projectionist.vim: project configuration
 "
 " - tpope/vim-fugitive
 "   Git wrapper so awesome, it should be illegal
@@ -148,6 +148,10 @@
   \ }) | else | echo 'No tags' | endif
 
   nnoremap <leader>t :FZFTagFile<cr>
+
+" - avdgaag/vim-lotus
+"   Vim plugin for working with Lotus projects
+"
 
 " ################
 " Editing settings
