@@ -25,7 +25,9 @@
   " The encoding written to file
   set fileencoding=utf-8
 
+" ###############
 " Bundled plugins
+" ###############
 "
 " - tpope/vim-sensible
 "   Sane defaults for everyone
@@ -44,6 +46,9 @@
 "
 " - tpope/vim-commentary
 "   Comment stuff out
+"
+" - tpope/vim-rbenv
+"   Minimal rbenv support
 "
 " - tpope/vim-surround
 "   Quoting/parenthesizing made simple
@@ -94,6 +99,9 @@
 "
 " - vim-ruby/vim-ruby
 "   Vim/Ruby Configuration Files
+"
+" - szw/vim-tags
+"   Ctags generator for Vim
 
   autocmd FileType ruby compiler ruby
 

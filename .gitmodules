@@ -46,3 +46,9 @@
 [submodule "nvim/bundle/html5.vim"]
 	path = nvim/bundle/html5.vim
 	url = git@github.com:othree/html5.vim.git
+[submodule "nvim/bundle/vim-tags"]
+	path = nvim/bundle/vim-tags
+	url = https://github.com/szw/vim-tags.git
+[submodule "nvim/bundle/vim-rbenv"]
+	path = nvim/bundle/vim-rbenv
+	url = git@github.com:tpope/vim-rbenv.git
