@@ -71,7 +71,7 @@
 " - tpope/vim-flagship
 "   Configurable and extensible tab line and status line
 
-  let g:tabprefix=" » "
+  let g:tabprefix=" »"
   let g:tablabel="%N %{flagship#tabcwds('shorten',',')}%{flagship#tabmodified()} »"
 
   autocmd User Flags call Hoist("window", -100, "%m")
@@ -218,12 +218,14 @@
 
   " Custom colors
   hi! LineNR ctermbg=NONE
-  hi! TabLineSel ctermfg=12
 
   if &g:background == 'dark'
     " Indent-guides
     hi! IndentGuidesOdd ctermbg=18
     hi! IndentGuidesEven ctermbg=18
+
+    " TabLine
+    hi! TabLineSel ctermfg=05
   else
     " Statusline
     hi! Statusline ctermbg=19 ctermfg=21
