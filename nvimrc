@@ -84,8 +84,8 @@
   set statusline+=%y " File type
   set statusline+=[%{strlen(&fenc)?&fenc:'none'}] " File encoding
   set statusline+=[%{&ff}] " File ending
-  set statusline+=\ line\ %l\:%c\/%L " Line info
-  set statusline+=\ %P\  " Perc. file
+  set statusline+=\ %P\ of\ %L\  " Perc. file
+  set statusline+=(%l\:%c) " Line info
   set statusline+=\ «\  " Firula
 
 " - nathanaelkane/vim-indent-guides
@@ -151,10 +151,6 @@
   \ }) | else | echo 'No tags' | endif
 
   nnoremap <leader>t :FZFTagFile<cr>
-
-" - avdgaag/vim-lotus
-"   Vim plugin for working with Lotus projects
-"
 
 " ################
 " Editing settings

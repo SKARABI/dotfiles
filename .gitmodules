@@ -55,3 +55,6 @@
 [submodule "nvim/bundle/vim-projectionist"]
 	path = nvim/bundle/vim-projectionist
 	url = git://github.com/tpope/vim-projectionist.git
+[submodule "nvim/bundle/vim-rails"]
+	path = nvim/bundle/vim-rails
+	url = git@github.com:tpope/vim-rails.git
