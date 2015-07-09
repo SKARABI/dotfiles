@@ -61,7 +61,6 @@
 
   let g:ragtag_global_maps=1
 
-"
 " - tpope/vim-endwise
 "   wisely add 'end' in ruby, endfunction/endif/more in vim script, etc
 "
@@ -74,8 +73,6 @@
   let g:tabprefix=" »"
   let g:tablabel="%N %{flagship#tabcwds('shorten',',')}%{flagship#tabmodified()} »"
 
-  autocmd User Flags call Hoist("window", -100, "%m")
-
   set statusline=\ » " Firulinha
   set statusline+=\ %t\  " Filename
 
@@ -87,6 +84,9 @@
   set statusline+=\ %P\ of\ %L\  " Perc. file
   set statusline+=(%l\:%c) " Line info
   set statusline+=\ «\  " Firula
+
+  autocmd User Flags call Hoist("window", "SyntasticStatuslineFlag")
+  autocmd User Flags call Hoist("window", "%m")
 
 " - nathanaelkane/vim-indent-guides
 "   Visually displaying indent levels in code
@@ -110,7 +110,18 @@
 
 " - othree/html5.vim
 "   HTML5 omnicomplete and syntax
+"
+" - scrooloose/syntastic
+"   Syntax checking hacks for vim 
 
+  let g:syntastic_always_populate_loc_list=1
+  let g:syntastic_enable_signs=0
+  let g:syntastic_auto_loc_list=0
+  let g:syntastic_check_on_open=0
+  let g:syntastic_check_on_wq= 0
+  let g:syntastic_ruby_checkers=['rubocop', 'mri']
+
+"
 " - junegunn/fzf
 "   A command-line fuzzy finder written in Go
 
@@ -214,6 +225,14 @@
 
   " Custom colors
   hi! LineNR ctermbg=NONE
+
+  " Syntastic custom colors
+  hi! SyntasticErrorSign ctermfg=09 ctermbg=NONE
+  hi! SyntasticStyleErrorSign ctermfg=01 ctermbg=NONE
+  hi! SyntasticStyleWarningSign ctermfg=03 ctermbg=NONE
+  hi! SyntasticWarningSign ctermfg=03 ctermbg=NONE
+
+  hi! SignColumn ctermbg=NONE
 
   if &g:background == 'dark'
     " Indent-guides
