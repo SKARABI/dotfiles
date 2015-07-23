@@ -46,7 +46,6 @@ alias g='git'
 alias fresh_schema='rm db/schema.rb && rake db:drop:all && rake db:create && rake db:migrate && rake db:test:prepare'
 alias rbp='rails_best_practices -f html . --output-file public/rbp.html'
 alias be='bundle exec'
-alias ls='ls --color'
 alias nv='nvim'
 alias lgm='lotus generate model'
 alias lga='lotus generate action'
@@ -56,3 +55,9 @@ alias diffcop="git diff --name-only | grep .rb | xargs --no-run-if-empty bundle 
 alias diffhaml="git diff --name-only | grep .haml | xargs --no-run-if-empty bundle exec haml-lint";
 alias diffspec="git diff --name-only | grep .rb | sed 's/app\//spec\//g' | sed 's/\.rb/_spec\.rb/g' | sed 's/_spec_spec/_spec/g' | sort -u | xargs --no-run-if-empty bundle exec rspec";
 alias cotocheck="diffcop && diffhaml && diffspec"
+
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  alias ls='ls --color'
+fi
+
+alias fuck='eval $(thefuck $(fc -ln -1)); history -r'<F37>
