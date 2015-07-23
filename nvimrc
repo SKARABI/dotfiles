@@ -236,6 +236,7 @@
   hi! SyntasticWarningSign ctermfg=03 ctermbg=NONE
 
   hi! SignColumn ctermbg=NONE
+  hi! VertSplit ctermbg=NONE
 
   if &g:background == 'dark'
     " Indent-guides
