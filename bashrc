@@ -2,7 +2,6 @@
 function colorscheme () {
   BASE16_BG=$1
   BASE16_THEME=base16-$2
-
   BASE16_SHELL="$HOME/.config/base16-shell/${BASE16_THEME}.${BASE16_BG}.sh"
 
   [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
@@ -23,33 +22,26 @@ else
   colorscheme dark default
 fi
 
-color_off='\e[0m' # Text Reset
-black='\e[0;30m' # Black
-bright_black='\e[1;30m' # Black
-red='\e[0;31m' # Red
-green='\e[0;32m' # Green
-yellow='\e[0;33m' # Yellow
-blue='\e[0;34m' # Blue
-purple='\e[0;35m' # Purple
-cyan='\e[0;36m' # Cyan
-white='\e[0;37m' # White
-
-# Prompt with ruby version
-function rbenv_ps1 () {
-  rbenv_ruby_version=`rbenv version | sed -e 's/ .*//'`
-
-  printf $rbenv_ruby_version
-}
+color_off='\e[0m'
+black='\e[0;30m'
+bright_black='\e[1;30m'
+red='\e[0;31m'
+green='\e[0;32m'
+yellow='\e[0;33m'
+blue='\e[0;34m'
+purple='\e[0;35m'
+cyan='\e[0;36m'
+white='\e[0;37m'
 
 function parse_git_branch {
   git_branch=`git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
 
   if [ "$git_branch" ]; then
-    printf "${color_off}on ${red}$git_branch"
+    printf "${blue}$git_branch${color_off}"
   fi
 }
 
-PS1="\[${color_off}\]using \[${blue}\]\$(rbenv_ps1) \[${color_off}\]at\[${green}\] \\W \$(parse_git_branch) \n\\[${red}\]\$\[${color_off}\] "
+PS1="\[${green}\]\\W\[${color_off}\](\$(parse_git_branch))\\[${red}\]\$\[${color_off}\] "
 
 set -o vi
 
