@@ -41,13 +41,13 @@ function parse_git_branch {
   git_branch=`git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
 
   if [ "$git_branch" ]; then
-    printf "(${blue}$git_branch${color_off})"
+    printf "(${blue}$git_branch${color_off}) "
   else
     printf ' '
   fi
 }
 
-PS1="\[${green}\]\\W\[${color_off}\]\$(parse_git_branch)\\[${red}\]\$\[${color_off}\] "
+PS1="\[${green}\]\\W\[${color_off}\]\$(parse_git_branch)\\[${red}\]»\[${color_off}\] "
 
 set -o vi
 
