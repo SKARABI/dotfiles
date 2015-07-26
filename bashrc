@@ -9,9 +9,7 @@ function colorscheme () {
   echo "colorscheme $BASE16_BG $2" > ~/.term_colorscheme
 
   if which tmux >/dev/null; then
-    if [[ -z "$TMUX" ]]; then
-      tmux source-file $HOME/.tmux_$BASE16_BG  > /dev/null;
-    fi
+    tmux source-file $HOME/.tmux_$BASE16_BG  > /dev/null;
   fi
 
   cat <<NVIM_COLORS > ~/.nvim_colorscheme
