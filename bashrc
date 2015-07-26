@@ -8,7 +8,11 @@ function colorscheme () {
 
   echo "colorscheme $BASE16_BG $2" > ~/.term_colorscheme
 
-  tmux source-file $HOME/.tmux_$BASE16_BG  > /dev/null;
+  if which tmux >/dev/null; then
+    if [[ -z "$TMUX" ]]; then
+      tmux source-file $HOME/.tmux_$BASE16_BG  > /dev/null;
+    fi
+  fi
 
   cat <<NVIM_COLORS > ~/.nvim_colorscheme
   set background=$BASE16_BG
@@ -37,11 +41,13 @@ function parse_git_branch {
   git_branch=`git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
 
   if [ "$git_branch" ]; then
-    printf "${blue}$git_branch${color_off}"
+    printf "(${blue}$git_branch${color_off})"
+  else
+    printf ' '
   fi
 }
 
-PS1="\[${green}\]\\W\[${color_off}\](\$(parse_git_branch))\\[${red}\]\$\[${color_off}\] "
+PS1="\[${green}\]\\W\[${color_off}\]\$(parse_git_branch)\\[${red}\]\$\[${color_off}\] "
 
 set -o vi
 
@@ -69,8 +75,10 @@ if which brew >/dev/null; then
   fi
 fi
 
-if [[ -z "$TMUX" ]]; then
-  tmux -u new-session -s default -A
+if which tmux >/dev/null; then
+  if [[ -z "$TMUX" ]]; then
+    tmux -u new-session -s default -A
+  fi
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
