@@ -7,40 +7,6 @@ alias l='ls'
 alias ll='ls -al --color'
 alias lh='ls -Alh'
 
-# Bundler
-alias b="bundle"
-
-# Tests and Specs
-alias t="ruby -I test"
-alias cuc="bundle exec cucumber"
-
-# Rubygems
-alias gi="gem install"
-alias giv="gem install -v"
-
-# Rails
-alias migrate="rake db:migrate && rake db:rollback && rake db:migrate && rake db:test:prepare"
-
-# Heroku staging
-alias staging-console='heroku run console --remote staging'
-alias staging-process='watch heroku ps --remote staging'
-alias staging-releases='heroku releases --remote staging'
-alias staging-tail='heroku logs --tail --remote staging'
-
-# Heroku production
-alias production-console='heroku run console --remote production'
-alias production-process='watch heroku ps --remote production'
-alias production-releases='heroku releases --remote production'
-alias production-tail='heroku logs --tail --remote production'
-
-# Heroku databases
-alias db-backup-production='heroku pgbackups:capture --remote production'
-alias db-copy-production-to-staging='heroku pgbackups:restore DATABASE `heroku pgbackups:url --remote production` --remote staging  --confirm `basename $PWD`-staging'
-
-# tmux
-alias tn='tmux switch -n'
-alias tp='tmux switch -p'
-
 # Shortcuts
 alias g='git'
 alias fresh_schema='rm db/schema.rb && rake db:drop:all && rake db:create && rake db:migrate && rake db:test:prepare'
