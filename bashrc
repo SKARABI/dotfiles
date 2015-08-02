@@ -45,7 +45,7 @@ function parse_git_branch {
   fi
 }
 
-PS1="\[${green}\]\\W\[${color_off}\]\$(parse_git_branch)\\[${red}\]»\[${color_off}\] "
+PS1="\[${purple}\]\\W\[${color_off}\]\$(parse_git_branch)\\[${red}\]»\[${color_off}\] "
 
 set -o vi
 
