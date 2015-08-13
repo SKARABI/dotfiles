@@ -111,6 +111,9 @@
 " - othree/html5.vim
 "   HTML5 omnicomplete and syntax
 "
+" - junegunn/goyo.vim
+"   Distraction-free writing in Vim
+"
 " - scrooloose/syntastic
 "   Syntax checking hacks for vim 
 

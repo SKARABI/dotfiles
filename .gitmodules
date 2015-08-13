@@ -67,3 +67,6 @@
 [submodule "nvim/bundle/vim-coffee-script"]
 	path = nvim/bundle/vim-coffee-script
 	url = git@github.com:kchmck/vim-coffee-script.git
+[submodule "nvim/bundle/goyo"]
+	path = nvim/bundle/goyo
+	url = git@github.com:junegunn/goyo.vim.git
