@@ -179,8 +179,8 @@
   set nowb
 
   " Persistent undo
-  silent !mkdir ~/.nvim/backups > /dev/null 2>&1
-  set undodir=~/.nvim/backups
+  silent !mkdir ~/.vim/backups > /dev/null 2>&1
+  set undodir=~/.vim/backups
   set undofile
 
   " Completion
@@ -218,9 +218,9 @@
 
   " Colorscheme
   set t_Co=256
-  if filereadable(expand("~/.nvim_colorscheme"))
+  if filereadable(expand("~/.vim_colorscheme"))
     let base16colorspace=256
-    source ~/.nvim_colorscheme
+    source ~/.vim_colorscheme
   endif
 
   " Highlight current line

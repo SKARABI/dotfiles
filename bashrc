@@ -12,10 +12,10 @@ function colorscheme () {
     tmux source-file $HOME/.tmux_$BASE16_BG  > /dev/null;
   fi
 
-  cat <<NVIM_COLORS > ~/.nvim_colorscheme
+  cat <<VIM_COLORS > ~/.vim_colorscheme
   set background=$BASE16_BG
   colorscheme $BASE16_THEME
-NVIM_COLORS
+VIM_COLORS
 }
 
 if [ -f ~/.term_colorscheme ]; then
