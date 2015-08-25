@@ -53,7 +53,7 @@ export CLICOLOR=1
 export GREP_COLOR="1;31"
 export GREP_OPTIONS='--color=auto'
 export LESS="-R"
-export EDITOR=nvim
+export EDITOR=vi
 export TERM=xterm-256color
 export HISTSIZE=5000
 
