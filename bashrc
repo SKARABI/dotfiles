@@ -37,15 +37,23 @@ white='\e[0;37m'
 
 function parse_git_branch {
   git_branch=`git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+  index=`git status -s`
+
+  color=${green}
+
+  if echo ${index} >/dev/null; then
+    if [[ ${index} =~ "M" ]]; then color=${yellow}; fi
+    if [[ ${index} =~ "??" ]]; then color=${red}; fi
+  fi
 
   if [ "$git_branch" ]; then
-    printf "(${blue}$git_branch${color_off}) "
+    printf "(${color}$git_branch${color_off}) "
   else
     printf ' '
   fi
 }
 
-PS1="\[${purple}\]\\W\[${color_off}\]\$(parse_git_branch)\\[${red}\]»\[${color_off}\] "
+PS1="\[${purple}\]\\W\[${color_off}\]\$(parse_git_branch)\\n\[${red}\]»\[${color_off}\] "
 
 set -o vi
 
