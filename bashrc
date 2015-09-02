@@ -37,7 +37,7 @@ white='\e[0;37m'
 
 function parse_git_branch {
   git_branch=`git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
-  index=`git status -s`
+  index=`if [ -d .git ]; then git status -s; fi;`
 
   color=${green}
 
