@@ -42,4 +42,5 @@ if [ ! -d $HOME/.fzf ]; then
   $HOME/.fzf/install
 fi
 
-sudo pip install thefuck
+L=$HOME/bin/devstep && curl -sL https://github.com/fgrehm/devstep-cli/releases/download/v0.4.0/linux_amd64 > $L && chmod +x $L
+curl -sL https://github.com/codegangsta/cli/raw/master/autocomplete/bash_autocomplete | sed 's/$PROG/devstep/' | sudo tee /etc/bash_completion.d/devstep

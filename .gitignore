@@ -4,4 +4,5 @@ vim/backups
 nvim/backups
 tags
 bin/node
+bin/devstep
 config/configstore

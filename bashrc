@@ -58,8 +58,6 @@ PS1="\[${purple}\]\\W\[${color_off}\]\$(parse_git_branch)\\n\[${red}\]»\[${colo
 set -o vi
 
 export CLICOLOR=1
-export GREP_COLOR="1;31"
-export GREP_OPTIONS='--color=auto'
 export LESS="-R"
 export EDITOR=vi
 export TERM=xterm-256color
@@ -73,7 +71,7 @@ export PATH=$PATH:$GOPATH/bin
 source ~/.aliases
 source ~/.rbenvrc
 
-if which brew >/dev/null; then
+if which brew 2>/dev/null; then
   export PATH=$HOME/.homebrew/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
