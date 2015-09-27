@@ -6,3 +6,4 @@ tags
 bin/node
 bin/devstep
 config/configstore
+.devstep
