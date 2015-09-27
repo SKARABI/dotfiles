@@ -19,3 +19,5 @@ development_reload.rb
 vendor/cache
 tmux-workspace
 .nfs*
+.devstep/
+Cchfile

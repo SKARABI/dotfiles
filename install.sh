@@ -37,10 +37,12 @@ for name in *; do
   fi
 done
 
-if [ ! -d $HOME/.fzf ]; then
-  git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
-  $HOME/.fzf/install
+if [ ! -d $HOME/.selecta ]; then
+  git clone --depth 1 https://github.com/garybernhardt/selecta.git $HOME/.selecta
+  cp $HOME/.selecta/selecta $HOME/.bin
 fi
 
-L=$HOME/bin/devstep && curl -sL https://github.com/fgrehm/devstep-cli/releases/download/v0.4.0/linux_amd64 > $L && chmod +x $L
-curl -sL https://github.com/codegangsta/cli/raw/master/autocomplete/bash_autocomplete | sed 's/$PROG/devstep/' | sudo tee /etc/bash_completion.d/devstep
+# if [ ! -d $HOME/.bin/devstep ]; then
+#   L=$HOME/.bin/devstep && curl -sL https://github.com/fgrehm/devstep-cli/releases/download/v0.4.0/linux_amd64 > $L && chmod +x $L
+#   curl -sL https://github.com/codegangsta/cli/raw/master/autocomplete/bash_autocomplete | sed 's/$PROG/devstep/' | sudo tee /etc/bash_completion.d/devstep
+# fi

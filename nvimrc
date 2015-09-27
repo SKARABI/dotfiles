@@ -128,46 +128,37 @@
   let g:syntastic_error_symbol="✗"
   let g:syntastic_warning_symbol="⚠"
 
-" - junegunn/fzf
-"   A command-line fuzzy finder written in Go
+  " Run a given vim command on the results of fuzzy selecting from a given shell
+  " command. See usage below.
+  function! SelectaCommand(choice_command, selecta_args, vim_command)
+    try
+      let selection = system(a:choice_command . " | selecta " . a:selecta_args)
+    catch /Vim:Interrupt/
+      " Swallow the ^C so that the redraw below happens; otherwise there will be
+      " leftovers from selecta on the screen
+      redraw!
 
-  set rtp+=~/.fzf
-
-  nnoremap <leader>p :FZF!<cr>
-
-  " Select and open buffer
-  function! s:buflist()
-    redir => ls
-    silent ls
-    redir END
-    return split(ls, '\n')
+      return
+    endtry
+    redraw!
+    exec a:vim_command . " " . selection
   endfunction
 
-  function! s:bufopen(e)
-    execute 'buffer' matchstr(a:e, '^[ 0-9]*')
+  function! SelectaBuffer()
+    let bufnrs = filter(range(1, bufnr("$")), 'buflisted(v:val)')
+    let buffers = map(bufnrs, 'bufname(v:val)')
+
+    call SelectaCommand('echo "' . join(buffers, "\n") . '"', "", ":b")
   endfunction
 
-  nnoremap <silent> <Leader>b :call fzf#run({
-  \   'source':  reverse(<sid>buflist()),
-  \   'sink':    function('<sid>bufopen'),
-  \   'down':    20,
-  \ })<CR>
+  " Find all files in all non-dot directories starting in the working directory.
+  " Fuzzy select one of those. Open the selected file with :e.
+  nnoremap <leader>p :call SelectaCommand("selecta-command", "", ":e")<cr>
+  nnoremap <leader>pt :call SelectaCommand("selecta-command", "", ":tabnew")<cr>
+  nnoremap <leader>ps :call SelectaCommand("selecta-command", "", ":split")<cr>
 
-  " Jump to tags through whole project
-  command! -bar FZFTags if !empty(tagfiles()) | call fzf#run({
-  \   'source': "sed '/^\\!/d;s/\t.*//' " . join(tagfiles()) . ' | uniq',
-  \   'sink':   'tag',
-  \ }) | else | echo 'Preparing tags' | call system('ctags -R') | FZFTag | endif
-
-  nnoremap <leader>tp :FZFTags<CR>
-
-  command! FZFTagFile if !empty(tagfiles()) | call fzf#run({
-  \   'source': "cat " . tagfiles()[0] . ' | grep "' . expand('%:@') . '"' . " | sed -e '/^\\!/d;s/\t.*//' ". ' |  uniq',
-  \   'sink':   'tag',
-  \   'down':     20,
-  \ }) | else | echo 'No tags' | endif
-
-  nnoremap <leader>t :FZFTagFile<cr>
+  " Fuzzy select a buffer. Open the selected buffer with :b.
+  nnoremap <leader>b :call SelectaBuffer()<cr>
 
 " ################
 " Editing settings

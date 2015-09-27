@@ -1,4 +1,5 @@
 # This is a shell fragment that initializes rbenv, if it
 # has not been inited yet. Managed by puppet - DO NOT EDIT
 #
+export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
