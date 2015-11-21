@@ -4,11 +4,11 @@ Focused simple dotfiles for linux ruby developers based on thoughtbots dotfiles.
 
 ## Features
 
-- Awesome dry and performantvim configuration
+- Awesome dry and performant nvim configuration
 - Comprehensive Bash config
 - Well integrated TMUX
 - [Base16](http://chriskempson.github.io/base16/)
-- [FZF](https://github.com/junegunn/fzf/)
+- [Selecta](https://github.com/garybernhardt/selecta)
 
 ## Instalation
 
@@ -21,8 +21,6 @@ cd dotfiles
 ## Features
 
 ### Bash
-
-![Shell](https://dl.dropboxusercontent.com/u/12049697/bash.png)
 
 #### `colorscheme`
 
@@ -38,5 +36,5 @@ coloscheme light eighties
 
 Actually [NeoVIM](http://neovim.org)!
 
-![VIM](https://dl.dropboxusercontent.com/u/12049697/neovim.png)
+![VIM](https://owncloud.brennovich.com/index.php/apps/files_sharing/ajax/publicpreview.php?x=1366&y=319&a=true&file=neovim.png&t=EBJ9AUWbNvr6MNz)
 

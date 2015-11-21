@@ -7,3 +7,5 @@ bin/node
 bin/devstep
 config/configstore
 bin/selecta
+config/nvim/autoload/*.vim
+.netrwhist

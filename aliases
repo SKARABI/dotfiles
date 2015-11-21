@@ -15,6 +15,7 @@ alias be='bundle exec'
 alias nv='nvim'
 alias lgm='lotus generate model'
 alias lga='lotus generate action'
+alias vim="nvim"
 
 # Diff runs by @cotonerd
 alias diffcop="git diff --name-only | grep .rb | xargs --no-run-if-empty bundle exec rubocop";
