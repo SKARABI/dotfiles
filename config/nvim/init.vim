@@ -29,7 +29,9 @@ set fileencoding=utf-8
 
 call plug#begin('~/.nvim/plugged')
 
+Plug 'benekastah/neomake'
 Plug 'chriskempson/base16-vim'
+Plug 'othree/html5.vim'
 Plug 'szw/vim-tags'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -40,7 +42,6 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
-Plug 'othree/html5.vim'
 
 call plug#end()
 
@@ -117,6 +118,12 @@ set linebreak
 set scrolloff=8
 set listchars=tab:>\ ,trail:·,extends:>,precedes:<,nbsp:+,eol:¬
 
+" Run Neomake after saving a file
+autocmd! BufWritePost * Neomake
+
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_ruby_enabled_makers = ['mri', 'rubocop']
+
 " ###################
 " Appearence settings
 " ###################
@@ -126,6 +133,7 @@ set listchars=tab:>\ ,trail:·,extends:>,precedes:<,nbsp:+,eol:¬
 " Statusbar
 set statusline=\ » " Firulinha
 set statusline+=\ %f\  " Filename
+set statusline+=%{fugitive#statusline()} " Git info
 
 set statusline+=%= " Separator
 
@@ -146,9 +154,27 @@ set colorcolumn=110
 set cursorline
 
 " Colors
-if filereadable(expand("~/.vim_colorscheme"))
+if filereadable(expand('~/.vim_colorscheme'))
   let base16colorspace=256
   source ~/.vim_colorscheme
 endif
 
 hi! LineNR ctermbg=NONE
+hi! SignColumn ctermbg=NONE
+hi! VertSplit ctermbg=NONE
+
+if &g:background == 'dark'
+  " Indent-guides
+  " hi! IndentGuidesOdd ctermbg=18
+  " hi! IndentGuidesEven ctermbg=18
+
+  " TabLine
+  hi! TabLineSel ctermfg=05
+else
+  " Statusline
+  hi! Statusline ctermbg=19 ctermfg=21
+
+  " Indent-guides
+  " hi! IndentGuidesOdd ctermbg=21
+  " hi! IndentGuidesEven ctermbg=21
+endif
