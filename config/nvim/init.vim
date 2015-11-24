@@ -50,17 +50,32 @@ call plug#end()
 " ###################
 
 function! SelectaCommand(choice_command, selecta_args, vim_command)
-  try
-    let selection = system(a:choice_command . " | selecta " . a:selecta_args)
-  catch /Vim:Interrupt/
-    " Swallow the ^C so that the redraw below happens; otherwise there will be
-    " leftovers from selecta on the screen
-    redraw!
+  let dict = { 'buf': bufnr('%'), 'vim_command': a:vim_command, 'temps': { 'result': tempname() }, 'name': 'SelectaCommand' }
 
-    return
-  endtry
-  redraw!
-  exec a:vim_command . " " . selection
+  function! dict.on_exit(id, code)
+    bd!
+
+    if a:code != 0
+      return 1
+    endif
+
+    if filereadable(self.temps.result)
+      let l:selection = readfile(self.temps.result)[0]
+
+      exec self.vim_command." ".l:selection
+    else
+      echom "selecta: error: can't read selection from (".self.temps.result.")"
+    endif
+  endfunction
+
+  if a:vim_command != ':e'
+    exec 'split '.dict.buf
+  endif
+
+  call termopen(a:choice_command." | selecta ".a:selecta_args." > ".dict.temps.result, dict)
+
+  setf dict
+  startinsert
 endfunction
 
 function! SelectaBuffer()
