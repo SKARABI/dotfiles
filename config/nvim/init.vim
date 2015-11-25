@@ -68,7 +68,7 @@ function! SelectaCommand(choice_command, selecta_args, vim_command)
     endif
   endfunction
 
-  if a:vim_command != ':e'
+  if line('$') != 1 && getline(1) != ''
     exec 'split '.dict.buf
   endif
 
