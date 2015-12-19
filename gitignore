@@ -21,3 +21,4 @@ tmux-workspace
 .nfs*
 .devstep/
 Cchfile
+.byebug_history

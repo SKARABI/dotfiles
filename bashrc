@@ -84,3 +84,7 @@ if which tmux >/dev/null; then
     tmux -u new-session -s default -A
   fi
 fi
+
+export TEST_CLUSTER_PARAMS="-Des.security.manager.enabled=false -Des.default.path.conf=/etc/elasticsearch/elasticsearch.yml -Des.default.path.logging=/etc/elasticsearch/logging.yml"
+export TEST_CLUSTER_LOGS="/tmp/elasticsearch_logs"
+
