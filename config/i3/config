@@ -4,6 +4,9 @@
 
 set $mod Mod4
 set $background ~/Pictures/Wallpapers/republica.jpeg
+set $locker i3lock -i ~/Pictures/Wallpapers/solarized-mountains.png -t -n -f -e && sleep 1
+set $rofi_opts -opacity 92 -lines 5 -rnow -padding 20
+set $compositor compton --config ~/.compton.conf
 
 ####################
 # General Settings #
@@ -23,37 +26,38 @@ hide_edge_borders vertical
 popup_during_fullscreen smart
 
 for_window [class="XTerm"] border pixel 1
+for_window [class="Firefox"] border pixel 1
 
 ########################
 # Startup Applications #
 ########################
 
+# Simple x compositor to improve  menus focus
+exec --no-startup-id $compositor
+
 # Set wallpaper
 exec --no-startup-id feh --bg-fill $background
 exec --no-startup-id xrdb -merge ~/.Xresources
-
-# Name workspaces
-exec --no-startup-id i3-msg rename workspace 1 to "1:www"
-exec --no-startup-id i3-msg rename workspace 2 to "2:term"
-exec --no-startup-id i3-msg rename workspace 3 to "3:commu"
-exec --no-startup-id i3-msg rename workspace 4 to "4:media"
-exec --no-startup-id i3-msg rename workspace 4 to "5:misc"
 
 ############
 # Bindings #
 ############
 
+# Compositor
+bindsym Control+$mod+c exec --no-startup-id $compositor
+bindsym Control+$mod+k exec --no-startup-id killall compton
+
 # Start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 
 # Kill focused window
 bindsym $mod+Shift+q kill
 
 # Start rofi (as program launcher)
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec --no-startup-id rofi $rofi_opts -show run
 
 # Start rofi (as window selector)
-bindsym $mod+Tab exec rofi -show window
+bindsym $mod+Tab exec --no-startup-id rofi $rofi_opts -show window
 
 # Change focus
 bindsym $mod+h focus left
@@ -91,11 +95,11 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # Switch to workspace
-bindsym $mod+1 workspace 1:www
-bindsym $mod+2 workspace 2:term
-bindsym $mod+3 workspace 3:commu
-bindsym $mod+4 workspace 4:media
-bindsym $mod+5 workspace 5:misc
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
@@ -103,11 +107,11 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1:www
-bindsym $mod+Shift+2 move container to workspace 2:term
-bindsym $mod+Shift+3 move container to workspace 3:commu
-bindsym $mod+Shift+4 move container to workspace 4:media
-bindsym $mod+Shift+5 move container to workspace 5:misc
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
@@ -120,11 +124,8 @@ bindsym $mod+Shift+c reload
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-# Exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
 # Lock screen
-bindsym Control+Mod1+l exec i3lock -i $background -n -f -t
+bindsym Control+Mod1+l exec --no-startup-id $locker
 
 # Move the current workspace to the next output
 # (effectively toggles when you only have two outputs)
@@ -132,22 +133,22 @@ bindsym $mod+x move workspace to output right
 bindsym $mod+Shift+x move workspace to output left
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 
 # Pulse Audio controls
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 2 toggle && killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 2 +5% && killall -SIGUSR1 i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 2 -5% && killall -SIGUSR1 i3status
 
-# Media player controls
-bindsym Control+Mod1+space exec playerctl play-pause
-bindsym Control+Mod1+n exec playerctl next
-bindsym Control+Mod1+p exec playerctl previous
+# cmus music player controls
+bindsym Control+$mod+Mod1+space exec --no-startup-id cmus-remote -u
+bindsym Control+$mod+Mod1+n exec --no-startup-id cmus-remote -n
+bindsym Control+$mod+Mod1+p exec --no-startup-id cmus-remote -r
 
 # Screenshots
-bindsym --release Shift+Print exec scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'
-bindsym Print exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/Screenshots/'
+bindsym --release Shift+Print exec --no-startup-id scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'
+bindsym Print exec --no-startup-id scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/Screenshots/'
 
 # Resize window (you can also use the mouse for that)
 mode "resize" {
@@ -175,30 +176,73 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+set $mode_system system: lock(l), logout(e), suspend(s), hibernate(h), reboot(r), shutdown(Shift+s)
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $locker && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $locker && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+e mode "$mode_system"
+
+# Exit i3 (logs you out of your X session)
+bindsym Control+Mod1+Delete exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
 # The middle button and a modifer over any part of the window kills the window
 bindsym --whole-window $mod+button2 kill
 
-##############
-# Status Bar #
-##############
+#######################
+# Themes & Status Bar #
+#######################
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-  status_command i3status
-        tray_output primary
-  colors {
-    separator #dc322f
-    background #002b36
-    statusline #268bd2
-    focused_workspace #fdf6e3 #859900 #fdf6e3
-    active_workspace #fdf6e3 #6c71c4 #fdf6e3
-    inactive_workspace #586e75 #93a1a1 #002b36
-    urgent_workspace #d33682 #d33682 #fdf6e3
-  }
-}
+# Arch
+#
+# client.focused          #0088CC #0088CC #ffffff #dddddd
+# client.focused_inactive #333333 #333333 #888888 #292d2e
+# client.unfocused        #333333 #333333 #888888 #292d2e
+# client.urgent           #2f343a #900000 #ffffff #900000
+
+# bar {
+#   status_command i3status
+#         tray_output primary
+#   colors {
+#     background #222222
+#     statusline #dddddd
+#     separator #666666
+#     focused_workspace #0088CC #0088CC #ffffff
+#     active_workspace #333333 #333333 #888888
+#     inactive_workspace #333333 #333333 #888888
+#     urgent_workspace   #2f343a #900000 #ffffff
+#   }
+# }
+
+# Solarized
 
 client.focused #859900 #859900 #fdf6e3 #859900
 client.focused_inactive #073642 #073642 #eee8d5 #6c71c4
 client.unfocused #073642 #073642 #93a1a1 #586e75
 client.urgent #d33682 #d33682 #fdf6e3 #dc322f
+
+bar {
+  status_command i3conky
+        tray_output primary
+
+  separator_symbol " "
+
+  colors {
+    separator #657b83
+    background #002b36
+    statusline #6c71c4
+    focused_workspace #859900 #859900 #fdf6e3
+    active_workspace #fdf6e3 #6c71c4 #fdf6e3
+    inactive_workspace #93a1a1 #93a1a1 #002b36
+    urgent_workspace #d33682 #d33682 #fdf6e3
+  }
+}

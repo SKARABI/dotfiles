@@ -80,8 +80,10 @@ if which brew 2>/dev/null; then
 fi
 
 if which tmux >/dev/null; then
-  if [[ -z "$TMUX" ]]; then
-    tmux -u new-session -s default -A
+  if [[ "`tty`" != "/dev/tty1" ]]; then
+    if [[ -z "$TMUX" && !(tty =~ "tty1") ]]; then
+      tmux -u new-session -s default -A
+    fi
   fi
 fi
 
