@@ -39,6 +39,9 @@ exec --no-startup-id $compositor
 exec --no-startup-id feh --bg-fill $background
 exec --no-startup-id xrdb -merge ~/.Xresources
 
+# Notification handler
+exec --no-startup-id dunst -conf ~/config/i3/dunstrc
+
 ##############
 # Scratchpad #
 ##############
@@ -147,10 +150,11 @@ bindsym $mod+Shift+x move workspace to output left
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 3
 
 # Pulse Audio controls
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 2 toggle && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMicMute exec --no-startup-id amixer set Capture toggle  && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 2 +5% && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 2 -5% && pkill -RTMIN+10 i3blocks
 
