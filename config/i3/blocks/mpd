@@ -1,0 +1,29 @@
+#!/bin/bash
+
+PLAYER_STATUS="$(mpc | grep -oE '(playing|pause)')"
+
+echo -n '<span foreground="#d33682">« </span>'
+
+widget() {
+  if [[ "$PLAYER_STATUS" == 'playing' ]]; then
+    ARTIST="$(mpc current | head | awk -F ' - ' '{ print $1 }';)"
+    SONG="$(mpc current | head | awk -F ' - ' '{ print $2 }';)"
+
+    echo -n '<span foreground="#b58900">'
+      echo -n $SONG
+    echo -n '</span>'
+    echo -n '<span foreground="#586e75"> <i>by</i> </span>'
+    echo -n '<span foreground="#cb4b16">'
+      echo -n $ARTIST
+    echo -n '</span>'
+  else
+    echo -n 'mpd <span foreground="#586e75"><i>paused</i></span>'
+  fi
+}
+
+case $BLOCK_BUTTON in
+    3) mpc toggle && widget ;;  # right click, pause/unpause
+    4) mpc prev   && widget ;;  # scroll up, previous
+    5) mpc next   && widget ;;  # scroll down, next
+    *) widget ;;
+esac

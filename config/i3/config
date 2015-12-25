@@ -4,7 +4,7 @@
 
 set $mod Mod4
 set $background ~/Pictures/Wallpapers/republica.jpeg
-set $locker i3lock -i ~/Pictures/Wallpapers/solarized-mountains.png -t -n -f -e && sleep 1
+set $locker i3lock -i ~/Pictures/Wallpapers/solarized-mountains.png -d -t -n -f -e && sleep 1
 set $rofi_opts -opacity 92 -lines 5 -rnow -padding 20
 set $compositor compton --config ~/.compton.conf
 
@@ -20,7 +20,7 @@ font pango:DejaVu Sans Mono Book 11
 floating_modifier $mod
 
 # Hide vertical borders
-hide_edge_borders vertical
+# hide_edge_borders vertical
 
 # Display popups if it's from same window
 popup_during_fullscreen smart
@@ -50,7 +50,7 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # Filter scratchpad apps
-bindsym mod4+m [title=".*cmus"] scratchpad show
+bindsym mod4+m [title=".*ncmpcpp"] scratchpad show
 
 ############
 # Bindings #
@@ -154,10 +154,10 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 2 toggle && pkill
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 2 +5% && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 2 -5% && pkill -RTMIN+10 i3blocks
 
-# cmus music player controls
-bindsym Control+$mod+Mod1+space exec --no-startup-id cmus-remote -u
-bindsym Control+$mod+Mod1+n exec --no-startup-id cmus-remote -n
-bindsym Control+$mod+Mod1+p exec --no-startup-id cmus-remote -r
+# MPD controls
+bindsym Control+$mod+Mod1+space exec --no-startup-id mpc toggle && pkill -RTMIN+12 i3blocks
+bindsym Control+$mod+Mod1+n exec --no-startup-id mpc next && pkill -RTMIN+12 i3blocks
+bindsym Control+$mod+Mod1+p exec --no-startup-id mpc previous && pkill -RTMIN+12 i3blocks
 
 # Screenshots
 bindsym --release Shift+Print exec --no-startup-id scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'
@@ -245,8 +245,7 @@ client.urgent #d33682 #d33682 #fdf6e3 #dc322f
 
 bar {
   status_command i3blocks
-        tray_output primary
-
+  tray_output primary
   separator_symbol " "
 
   colors {
