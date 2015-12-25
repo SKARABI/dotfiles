@@ -4,7 +4,7 @@
 
 set $mod Mod4
 set $background ~/Pictures/Wallpapers/republica.jpeg
-set $locker i3lock -i ~/Pictures/Wallpapers/solarized-mountains.png -d -t -n -f -e && sleep 1
+set $locker i3lock -i ~/Pictures/Wallpapers/solarized-mountains.png -d -t -n -f -e && sleep 5
 set $rofi_opts -opacity 92 -lines 5 -rnow -padding 20
 set $compositor compton --config ~/.compton.conf
 

@@ -36,5 +36,10 @@ coloscheme light eighties
 
 Actually [NeoVIM](http://neovim.org)!
 
-![VIM](https://owncloud.brennovich.com/index.php/apps/files_sharing/ajax/publicpreview.php?x=1366&y=319&a=true&file=neovim.png&t=EBJ9AUWbNvr6MNz)
+### i3wm
 
+- [rofi](https://davedavenport.github.io/rofi/)
+- [dunst](http://www.knopwob.org/dunst/)
+- [i3blocks](https://github.com/vivien/i3blocks)
+- [i3lock](https://github.com/i3/i3lock)
+- [compton](https://github.com/chjj/compton/)
