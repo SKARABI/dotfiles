@@ -40,7 +40,7 @@ exec --no-startup-id feh --bg-fill $background
 exec --no-startup-id xrdb -merge ~/.Xresources
 
 # Notification handler
-exec --no-startup-id dunst -conf ~/config/i3/dunstrc
+exec --no-startup-id dunst -conf ~/.config/i3/dunstrc
 
 ##############
 # Scratchpad #
