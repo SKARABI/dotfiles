@@ -42,6 +42,12 @@ exec --no-startup-id xrdb -merge ~/.Xresources
 # Notification handler
 exec --no-startup-id dunst -conf ~/.config/i3/dunstrc
 
+# Automatically turn-off display power saving when running fullscreen applications
+exec --no-startup-id disable-dpms-on-fullscreen-window
+
+# Start Mopidy service
+exec --no-startup-id systemctl --user start mopidy.service
+
 ##############
 # Scratchpad #
 ##############
@@ -253,7 +259,7 @@ client.urgent #d33682 #d33682 #fdf6e3 #dc322f
 
 bar {
   status_command i3blocks
-  tray_output primary
+  tray_output eDP1
   separator_symbol " "
   position bottom
 
