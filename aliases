@@ -26,6 +26,3 @@ alias cotocheck="diffcop && diffhaml && diffspec"
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   alias ls='ls --color'
 fi
-
-alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
-alias t='tmux -u new-session -s default -A'
