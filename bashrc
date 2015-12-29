@@ -59,7 +59,7 @@ set -o vi
 
 export CLICOLOR=1
 export LESS="-R"
-export EDITOR=vi
+export EDITOR=nvim
 export TERM=xterm-256color
 export HISTSIZE=5000
 
@@ -70,22 +70,6 @@ export PATH=$PATH:$GOPATH/bin
 
 source ~/.aliases
 source ~/.rbenvrc
-
-if which brew 2>/dev/null; then
-  export PATH=$HOME/.homebrew/bin:/usr/local/bin:/usr/local/sbin:$PATH
-
-  if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
-  fi
-fi
-
-if which tmux >/dev/null; then
-  if [[ "`tty`" != "/dev/tty1" ]]; then
-    if [[ -z "$TMUX" && !(tty =~ "tty1") ]]; then
-      tmux -u new-session -s default -A
-    fi
-  fi
-fi
 
 export TEST_CLUSTER_PARAMS="-Des.security.manager.enabled=false -Des.default.path.conf=/etc/elasticsearch/elasticsearch.yml -Des.default.path.logging=/etc/elasticsearch/logging.yml"
 export TEST_CLUSTER_LOGS="/tmp/elasticsearch_logs"

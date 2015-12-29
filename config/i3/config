@@ -3,8 +3,8 @@
 #############
 
 set $mod Mod4
-set $background ~/Pictures/Wallpapers/republica.jpeg
-set $locker i3lock -i ~/Pictures/Wallpapers/solarized-mountains.png -d -t -n -f -e && sleep 5
+set $background ~/Pictures/Wallpapers/tetons-at-night.png
+set $locker i3lock-wrapper
 set $rofi_opts -opacity 92 -lines 5 -rnow -padding 20
 set $compositor compton --config ~/.compton.conf
 
@@ -19,14 +19,11 @@ font pango:DejaVu Sans Mono Book 11
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# Hide vertical borders
-# hide_edge_borders vertical
-
 # Display popups if it's from same window
 popup_during_fullscreen smart
 
-for_window [class="XTerm"] border pixel 1
-for_window [class="Firefox"] border pixel 1
+new_window pixel 4
+new_float pixel 4
 
 ########################
 # Startup Applications #
@@ -36,7 +33,7 @@ for_window [class="Firefox"] border pixel 1
 exec --no-startup-id $compositor
 
 # Set wallpaper
-exec --no-startup-id feh --bg-fill $background
+exec_always --no-startup-id feh --bg-fill $background
 exec --no-startup-id xrdb -merge ~/.Xresources
 
 # Notification handler
@@ -258,10 +255,10 @@ client.unfocused #073642 #073642 #93a1a1 #586e75
 client.urgent #d33682 #d33682 #fdf6e3 #dc322f
 
 bar {
-  status_command i3blocks
+  status_command i3blocks -c ~/.config/i3/i3blocks.conf
   tray_output eDP1
   separator_symbol " "
-  position bottom
+  position top
 
   colors {
     separator #657b83
