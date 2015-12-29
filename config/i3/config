@@ -25,22 +25,26 @@ popup_during_fullscreen smart
 new_window pixel 4
 new_float pixel 4
 
+gaps inner 20
+# smart_gaps on
+# smart_borders on
+
 ########################
 # Startup Applications #
 ########################
 
-# Simple x compositor to improve  menus focus
+# Simple X compositor to improve menus focus
 exec --no-startup-id $compositor
+
+# Automatically turn-off display power saving when running fullscreen applications
+exec_always --no-startup-id disable-dpms-on-fullscreen-window
 
 # Set wallpaper
 exec_always --no-startup-id feh --bg-fill $background
 exec --no-startup-id xrdb -merge ~/.Xresources
 
 # Notification handler
-exec --no-startup-id dunst -conf ~/.config/i3/dunstrc
-
-# Automatically turn-off display power saving when running fullscreen applications
-exec --no-startup-id disable-dpms-on-fullscreen-window
+exec_always --no-startup-id dunst -conf ~/.config/i3/dunstrc
 
 # Start Mopidy service
 exec --no-startup-id systemctl --user start mopidy.service
@@ -250,7 +254,7 @@ bindsym --whole-window $mod+button2 kill
 # Solarized
 
 client.focused #859900 #859900 #fdf6e3 #859900
-client.focused_inactive #073642 #073642 #eee8d5 #6c71c4
+client.focused_inactive #073642 #073642 #eee8d5 #073642
 client.unfocused #073642 #073642 #93a1a1 #586e75
 client.urgent #d33682 #d33682 #fdf6e3 #dc322f
 
