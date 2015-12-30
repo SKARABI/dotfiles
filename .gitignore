@@ -9,3 +9,4 @@ config/configstore
 bin/selecta
 config/nvim/autoload/*.vim
 .netrwhist
+vimperator/info/default
