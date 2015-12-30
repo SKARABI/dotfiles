@@ -19,7 +19,7 @@
   # Set to 0 to disable
   bounce_freq = 0
 
-  geometry = "300x20-12+12"
+  geometry = "300x20-8+32"
 
   shrink = no
   word_wrap = yes
