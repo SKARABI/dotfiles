@@ -10,3 +10,10 @@ bin/selecta
 config/nvim/autoload/*.vim
 .netrwhist
 vimperator/info/default
+mpd/database
+mpd/log
+mpd/mpd.conf
+mpd/pid
+mpd/playlists
+mpd/state
+mpd/sticker.sql
