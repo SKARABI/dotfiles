@@ -22,3 +22,6 @@ sudo pacman -S --noconfirm rofi
 
 # Tool to set global xconfigs (for xterm for example)
 sudo pacman -S --noconfirm xorg-xrdb
+
+# General Dependencies
+sudo pacman -S --noconfirm ttf-fira-mono ttf-fira-sans

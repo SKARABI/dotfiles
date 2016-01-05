@@ -5,7 +5,7 @@
 set $mod Mod4
 set $background ~/Pictures/Wallpapers/tetons-at-night.png
 set $locker i3lock-wrapper
-set $rofi_opts -opacity 92 -lines 5 -rnow -padding 100 -fuzzy -bg "#002b36" -bc "#859900" -bw 4 -hlbg "#002b36" -fg "#fdf6e3" -font "DejaVu Sans Mono Book 21" -hlfg "#d33682" -eh 1.2 -hide-scrollbar
+set $rofi_opts -opacity 92 -lines 5 -rnow -padding 100 -fuzzy -bg "#002b36" -bc "#859900" -bw 4 -hlbg "#002b36" -fg "#fdf6e3" -font "DejaVu Sans Mono Book 21" -hlfg "#d33682" -eh 1.0 -hide-scrollbar
 set $compositor compton --config ~/.compton.conf
 
 ####################
