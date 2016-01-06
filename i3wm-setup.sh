@@ -24,4 +24,4 @@ sudo pacman -S --noconfirm rofi
 sudo pacman -S --noconfirm xorg-xrdb
 
 # General Dependencies
-sudo pacman -S --noconfirm ttf-fira-mono ttf-fira-sans
+sudo pacman -S --noconfirm ttf-fira-mono ttf-fira-sans urxvt-perls rxvt-unicode
