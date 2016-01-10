@@ -50,10 +50,9 @@ progressbar_boldness = "no"
 # Visualizer #
 ##############
 
-visualizer_sync_interval = "100"
-visualizer_in_stereo = "no"
+visualizer_sync_interval = "30"
+visualizer_in_stereo = "yes"
 visualizer_type = "wave_filled"
-visualizer_look = "▒▋"
 
 ##########
 # Colors #

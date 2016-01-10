@@ -1,0 +1,74 @@
+#!/bin/bash
+#
+# Base16 Shell Colorschemes theme switcher
+#
+# It'll automatically work with `tmux`, but to it work with `vim` is necessary to add the following line
+# into your `vim` config file:
+#
+# ```
+# if filereadable(expand('~/.vim_colorscheme'))
+#   let base16colorspace=256
+#   source ~/.vim_colorscheme
+# endif
+# ```
+#
+# To work with your current terminal emulator session make sure you add the following like to your bashrc
+# and do not forget to have colorscheme script in your PATH:
+#
+# ```
+# source ~/.term_colorscheme
+# ```
+#
+# Usage:
+#
+# ```
+# # colorscheme VARIANT [light, dark] THEME
+# colorscheme dark solarized
+# ```
+#
+function set_tmux_colors () {
+  if [[ -s $TMUX ]]; then
+    if [[ $1 == 'dark' ]]; then
+      tmux set-option -g status-bg colour21
+      tmux set-option -g status-fg colour7
+      tmux set-option -g status-attr default
+      tmux set-window-option -g window-status-fg colour20
+      tmux set-window-option -g window-status-bg colour21
+      tmux set-window-option -g window-status-current-fg colour0
+    else
+      tmux set-option -g status-bg colour18
+      tmux set-option -g status-fg colour21
+      tmux set-option -g status-attr default
+      tmux set-window-option -g window-status-fg colour20
+      tmux set-window-option -g window-status-bg colour18
+      tmux set-window-option -g window-status-current-fg colour15
+    fi
+  fi
+}
+
+function colorscheme () {
+  base16_bg=$1
+  base16_theme=base16-$2
+  base16_shell="$HOME/.config/base16-shell/${base16_theme}.${base16_bg}.sh"
+
+  [[ -s $base16_shell ]] && source $base16_shell
+
+  echo "colorscheme $base16_bg $2" > ~/.term_colorscheme
+
+  set_tmux_colors $base16_bg
+
+  cat <<VIM_COLORS > ~/.vim_colorscheme
+  set background=$base16_bg
+  colorscheme $base16_theme
+
+  if &g:background == 'dark'
+    hi! TabLineSel ctermfg=05
+    hi! Statusline ctermbg=19 ctermfg=21
+  else
+    " Statusline
+    hi! Statusline ctermbg=19 ctermfg=21
+  endif
+VIM_COLORS
+}
+
+colorscheme $1 $2

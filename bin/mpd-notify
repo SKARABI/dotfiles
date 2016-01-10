@@ -2,6 +2,8 @@
 
 # Sends a dunstify notification with information from mpc -f.
 # Adapted from https://bbs.archlinux.org/viewtopic.php?pid=684807#p684807
+#
+# Also updates MPD info over i3-bar
 
 dunstify_id="/tmp/mpc-notify_dunstify_id"
 fmt_summary="[%title%]|[%file%]"
@@ -26,3 +28,5 @@ dunstify \
   -a "ncmpcpp" \
   -p $id_arg > "$dunstify_id" \
   "${summary:=no tunes}" "$body"
+
+pkill -RTMIN+12 i3blocks
