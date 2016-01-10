@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# Sends a dunstify notification with information from mpc -f.
+# Adapted from https://bbs.archlinux.org/viewtopic.php?pid=684807#p684807
+
+dunstify_id="/tmp/mpc-notify_dunstify_id"
+fmt_summary="[%title%]|[%file%]"
+fmt_body="[[%artist% - ]&%album%]|[%artist%]|[%album%]"
+
+mpc_format() {
+  args=("$@")
+  mpc -f "${args[0]}" current
+}
+
+# Get the dunstify id
+[ ! -z "$(cat "$dunstify_id")" ] && id_arg="-r $(cat "$dunstify_id")"
+
+summary="$(mpc_format "$fmt_summary")"
+body="$(mpc_format "$fmt_body")"
+
+# Summary/body can't start w/ -
+summary="${summary/#-/−}"
+body="${body/#-/−}"
+
+dunstify \
+  -a "ncmpcpp" \
+  -p $id_arg > "$dunstify_id" \
+  "${summary:=no tunes}" "$body"
