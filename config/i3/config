@@ -24,8 +24,6 @@ set $gray #657b83
 set $bartext #93a1a1
 set $ufocus #859900
 
-set $wallpaper_manager feh
-set $wallpaper_style bg-fill
 set $wallpaper ~/Pictures/Wallpapers/tetons-at-night.png
 
 set $border_size 4
@@ -75,7 +73,7 @@ exec --no-startup-id $compositor
 exec_always --no-startup-id disable-dpms-on-fullscreen-window
 
 # Set wallpaper
-exec_always --no-startup-id $wallpaper_manager --$wallpaper_style $wallpaper
+exec_always --no-startup-id feh --bg-fill $wallpaper
 
 # Set Xresources
 exec_always --no-startup-id xrdb ~/.Xresources
