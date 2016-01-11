@@ -193,11 +193,6 @@ bindsym Control+$mod+Mod1+p exec --no-startup-id mpc previous && pkill -RTMIN+12
 bindsym --release Shift+Print exec --no-startup-id scrot -s ~/Pictures/Screenshots/%y-%b-%d_%H%M%S.png
 bindsym --release Print exec --no-startup-id scrot ~/Pictures/Screenshots/%y-%b-%d_%H%M%S.png
 
-# Move the current workspace to the next output
-# (effectively toggles when you only have two outputs)
-bindsym $mod+x move workspace to output right
-bindsym $mod+Shift+x move workspace to output left
-
 # Resize window (you can also use the mouse for that)
 mode "resize" {
   bindsym h resize shrink width 5 px or 5 ppt
@@ -211,7 +206,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-mode "Gaps" {
+mode "gaps" {
   bindsym plus gaps inner current plus 5
   bindsym minus gaps inner current minus 5
 
@@ -227,7 +222,19 @@ mode "Gaps" {
   bindsym Escape mode "default"
 }
 
-bindsym $mod+g mode "Gaps"
+bindsym $mod+g mode "gaps"
+
+mode "move workspace" {
+  bindsym h move workspace to output left
+  bindsym j move workspace to output down
+  bindsym k move workspace to output up
+  bindsym l move workspace to output right
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+w mode "move workspace"
 
 set $mode_system system: lock(l), logout(e), suspend(s), hibernate(h), reboot(r), shutdown(Shift+s)
 
