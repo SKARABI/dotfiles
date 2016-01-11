@@ -1,21 +1,22 @@
 #!/bin/bash
 
-PLAYER_STATUS="$(mpc | grep -oE '(playing|pause)')"
+player_status="$(mpc | grep -oE '(playing|pause)')"
 
 echo -n '<span foreground="#d33682">« </span>'
 
 widget() {
-  if [[ "$PLAYER_STATUS" == 'playing' ]]; then
-    ARTIST="$(mpc current | head | awk -F ' - ' '{ print $1 }';)"
-    SONG="$(mpc current | head | awk -F ' - ' '{ print $2 }';)"
+  if [[ "$player_status" == 'playing' ]]; then
+    format='<span foreground="##b58900">'
+    format="$format%title%"
+    format="$format</span>"
+    format="$format<span foreground='##586e75'> <i>by</i> </span>"
+    format="$format<span foreground='##cb4b16'>"
+    format="$format%artist%"
+    format="$format</span>"
 
-    echo -n '<span foreground="#b58900">'
-      echo -n $SONG
-    echo -n '</span>'
-    echo -n '<span foreground="#586e75"> <i>by</i> </span>'
-    echo -n '<span foreground="#cb4b16">'
-      echo -n $ARTIST
-    echo -n '</span>'
+    now_playing=$(mpc -f "$format" | head -1)
+
+    echo -n $now_playing
   else
     echo -n 'mpd <span foreground="#586e75"><i>paused</i></span>'
   fi
