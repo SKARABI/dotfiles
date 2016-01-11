@@ -2,7 +2,7 @@
 
 scrot /tmp/screen.png
 convert /tmp/screen.png -scale 16% -scale 626% -fill black -colorize 25% /tmp/screen.png
-lock_icon=$HOME/.config/i3/lock.png
+lock_icon=$HOME/.i3/lock.png
 
 if [[ -f $lock_icon ]]; then
   px=0

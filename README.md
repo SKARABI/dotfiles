@@ -1,6 +1,6 @@
 # brennovich dotfiles
 
-Focused simple dotfiles for linux ruby developers based on thoughtbots dotfiles.
+My full configuration from development environment to desktop.
 
 ## Features
 
@@ -38,8 +38,12 @@ Actually [NeoVIM](http://neovim.org)!
 
 ### i3wm
 
-- [rofi](https://davedavenport.github.io/rofi/)
-- [dunst](http://www.knopwob.org/dunst/)
-- [i3blocks](https://github.com/vivien/i3blocks)
-- [i3lock](https://github.com/i3/i3lock)
-- [compton](https://github.com/chjj/compton/)
+![My desktop](http://i.imgur.com/vr2R7HG.png)
+
+- Typeface: [Fira](https://www.mozilla.org/en-US/styleguide/products/firefox-os/typeface/)
+- Launcher: [rofi](https://davedavenport.github.io/rofi/)
+- Notification daemon: [dunst](http://www.knopwob.org/dunst/)
+- Top bar info: [i3blocks](https://github.com/vivien/i3blocks)
+- Screen locker: [i3lock](https://github.com/i3/i3lock)
+- Composition manager:[compton](https://github.com/chjj/compton/)
+- Music player: [mpd](http://www.musicpd.org/) + [ncmpcpp](http://ncmpcpp.rybczak.net/)
