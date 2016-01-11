@@ -54,9 +54,10 @@ the window manager itself to the browser.
 
 Mod key is `super` (a.k.a Command, or Super depending on your keyboard)
 
-- Gaps control mode `mod + g`
-- System control mode `mod + Shift +e` (you can logout, reboot, etc)
-- Resize mode `mod + r`
+- Gaps control mode `mod + g` then `+` and `-` increase and decrease **gaps**
+- System control mode `mod + Shift + e` (you can logout, reboot, etc)
+- Resize mode `mod + r` then ViM directional to resize current focused window
+- Move workspace mode `mod + Shift + w` then ViM directional to move workspace to the output in the respective direction
 - Top bar info: [i3blocks](https://github.com/vivien/i3blocks)
 - Screen locker: [i3lock](https://github.com/i3/i3lock). It's super nice:
 
