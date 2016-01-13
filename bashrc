@@ -41,9 +41,3 @@ export PATH=$HOME/.bin:$PATH
 
 source ~/.aliases
 source ~/.rbenvrc
-
-if [ -f ~/.term_colorscheme ]; then
-  source ~/.term_colorscheme
-else
-  colorscheme dark default
-fi

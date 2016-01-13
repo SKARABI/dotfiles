@@ -29,8 +29,8 @@ set fileencoding=utf-8
 
 call plug#begin('~/.nvim/plugged')
 
+Plug 'altercation/vim-colors-solarized'
 Plug 'benekastah/neomake'
-Plug 'chriskempson/base16-vim'
 Plug 'othree/html5.vim'
 Plug 'szw/vim-tags'
 Plug 'tpope/vim-commentary'
@@ -123,7 +123,6 @@ set wildignore+=*.gem
 set wildignore+=.tags
 set wildignore+=log/**
 set wildignore+=tmp/**
-set wildignore+=*.png,*.jpg,*.gif
 
 " Set min-width of buffer, very useful when spliting panes
 set winwidth=80
@@ -144,8 +143,6 @@ let g:neomake_ruby_enabled_makers = ['mri', 'rubocop']
 " ###################
 " Appearence settings
 " ###################
-
-" Tabline
 
 " Statusbar
 set statusline=\ » " Firulinha
@@ -171,11 +168,11 @@ set colorcolumn=110
 set cursorline
 
 " Colors
-if filereadable(expand('~/.vim_colorscheme'))
-  let base16colorspace=256
-  source ~/.vim_colorscheme
-endif
+set background=dark
+let g:solarized_termtrans=1
+colorscheme solarized
 
 hi! LineNR ctermbg=NONE
 hi! SignColumn ctermbg=NONE
 hi! VertSplit ctermbg=NONE
+hi! Tabline ctermbg=NONE

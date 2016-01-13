@@ -1,3 +1,29 @@
+!!!!!!!!!!!
+! General !
+!!!!!!!!!!!
+
+Xcursor.theme: Adwaita
+Xcursor.size: 16
+
+! Colors
+#define S_base03  #002b36
+#define S_base02  #073642
+#define S_base01  #586e75
+#define S_base00  #657b83
+#define S_base0   #839496
+#define S_base1   #93a1a1
+#define S_base2   #eee8d5
+#define S_base3   #fdf6e3
+
+#define S_yellow  #b58900
+#define S_orange  #cb4b16
+#define S_red     #dc322f
+#define S_magenta #d33682
+#define S_violet  #6c71c4
+#define S_blue    #268bd2
+#define S_cyan    #2aa198
+#define S_green   #859900
+
 !!!!!!!!!
 ! XTerm !
 !!!!!!!!!
@@ -19,17 +45,49 @@ URxvt.letterSpace: -1
 ! UI
 URxvt*borderless: true
 URxvt.internalBorder: 5
-URxvt.borderColor: #002b36
 URxvt*scrollBar: false
 URxvt*saveLines: 20000
 URxvt*dynamicColors: true
-URxvt.urlLauncher: firefox
 URxvt*termName: rxvt-unicode
+URxvt*fading: 20
+
+! Colors
+URxvt.depth: 32
+URxvt.intensityStyles: false
+
+URxvt*background: [96]S_base03
+URxvt*foreground: S_base0
+URxvt*fadeColor: [96]S_base03
+URxvt*cursorColor: S_base1
+URxvt*pointerColorBackground: S_base01
+URxvt*pointerColorForeground: S_base1
+
+URxvt*color0: S_base02
+URxvt*color1: S_red
+URxvt*color2: S_green
+URxvt*color3: S_yellow
+URxvt*color4: S_blue
+URxvt*color5: S_magenta
+URxvt*color6: S_cyan
+URxvt*color7: S_base2
+URxvt*color9: S_orange
+URxvt*color8: S_base03
+URxvt*color10: S_base01
+URxvt*color11: S_base00
+URxvt*color12: S_base0
+URxvt*color13: S_violet
+URxvt*color14: S_base1
+URxvt*color15: S_base3
 
 ! Extensions
-URxvt.perl-ext: default,url-select,clipboard:antialias=true:hinting=true
+URxvt.perl-ext: default,url-select,clipboard
+URxvt.perl-ext-common: default,matcher
+
 URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+
+URxvt.url-launcher: /usr/bin/firefox
+URxvt.matcher.button: 1
 
 !!!!!!!!
 ! Rofi !
@@ -43,9 +101,9 @@ rofi.opacity: 92
 rofi.bw: 4
 rofi.padding: 10
 
-rofi.bc: #859900
-rofi.hlbg: #fdf6e3
-rofi.hlfg: #d33682
+rofi.bc: S_green
+rofi.hlbg: S_base3
+rofi.hlfg: S_magenta
 
 rofi.fuzzy: true
 rofi.sidebar-mode: false
