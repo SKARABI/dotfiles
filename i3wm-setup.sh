@@ -27,7 +27,7 @@ sudo pacman -S --noconfirm xorg-xrdb
 sudo pacman -S --noconfirm udiskie
 
 # CLI file manager
-sudo pacman -S --noconfirm ranger
+sudo pacman -S --noconfirm ranger w3m
 
 # General Dependencies
 sudo pacman -S --noconfirm ttf-fira-mono ttf-fira-sans urxvt-perls rxvt-unicode

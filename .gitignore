@@ -6,6 +6,9 @@ tags
 bin/node
 bin/devstep
 config/configstore
+config/ranger/history
+config/ranger/bookmarks
+config/ranger/tagged
 bin/selecta
 config/nvim/autoload/*.vim
 .netrwhist
