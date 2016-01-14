@@ -2,6 +2,7 @@
 ! General !
 !!!!!!!!!!!
 
+! Cursor
 Xcursor.theme: Adwaita
 Xcursor.size: 16
 

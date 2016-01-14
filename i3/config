@@ -84,6 +84,9 @@ exec_always --no-startup-id $notification_daemon
 # Start MPD service
 exec --no-startup-id systemctl --user start mpd.service mpdscribble.service
 
+# Automount removable media
+exec_always --no-startup-id udiskie --automount --notify --no-tray --use-udisks2
+
 ##############
 # Scratchpad #
 ##############

@@ -17,6 +17,7 @@ function parse_git_branch {
 
   if echo ${index} >/dev/null; then
     if [[ ${index} =~ "M" ]]; then color=${yellow}; fi
+    if [[ ${index} =~ "D" ]]; then color=${yellow}; fi
     if [[ ${index} =~ "??" ]]; then color=${red}; fi
   fi
 
@@ -27,14 +28,14 @@ function parse_git_branch {
   fi
 }
 
-PS1="\[${purple}\]\\W\[${color_off}\]\$(parse_git_branch)\\n\[${red}\]»\[${color_off}\] "
+PS1="\[${blue}\]\\W\[${color_off}\]\$(parse_git_branch)\\n\[${red}\]»\[${color_off}\] "
 
 set -o vi
 
 export CLICOLOR=1
 export LESS="-R"
 export EDITOR=nvim
-export TERM=xterm-256color
+export TERM=rxvt-unicode-256color
 export HISTSIZE=5000
 
 export PATH=$HOME/.bin:$PATH
