@@ -12,17 +12,23 @@ set $ws4 4:four
 set $ws5 5:five
 set $ws6 6:six
 
-set $background #002b36
-set $foreground #93a1a1
-set $primary #cb4b16
-set $secondary #6c71c4
-set $tertiary #073642
-set $warning #d33682
-set $border #fdf6e3
-set $white #002b36
-set $gray #657b83
-set $bartext #93a1a1
-set $ufocus #859900
+set $black3 #002b36
+set $black2 #073642
+set $black1 #586e75
+set $black0 #657b83
+set $white0 #839496
+set $white1 #93a1a1
+set $white2 #eee8d5
+set $white3 #fdf6e3
+
+set $yellow #b58900
+set $orange #cb4b16
+set $red #dc322f
+set $magenta #d33682
+set $violet #6c71c4
+set $blue #268bd2
+set $cyan #2aa198
+set $green #859900
 
 set $wallpaper ~/Pictures/Wallpapers/tetons-at-night.png
 
@@ -262,10 +268,10 @@ bindsym $mod+Shift+e mode "$mode_system"
 # Themes & Status Bar #
 #######################
 
-client.focused $ufocus $ufocus $white $ufocus
-client.unfocused $tertiary $tertiary $white $ufocus
-client.focused_inactive $tertiary $tertiary $white $tertiary
-client.urgent $warning $warning $white $warning
+client.focused $green $green $white3 $green
+client.unfocused $black2 $black2 $white1 $black2
+client.focused_inactive $black1 $black1 $white2 $black1
+client.urgent $magenta $magenta $white2 $magenta
 
 bar {
   status_command i3blocks -c ~/.i3/i3blocks.conf
@@ -276,12 +282,12 @@ bar {
   font pango:$barfont
 
   colors {
-    separator $gray
-    background $background
-    statusline $secondary
-    focused_workspace $ufocus $ufocus $border
-    active_workspace $border $secondary $border
-    inactive_workspace $bartext $bartext  $background
-    urgent_workspace $warning $warning $border
+    separator $black0
+    background $black3
+    statusline $violet
+    focused_workspace $green $green $white3
+    active_workspace $white3 $violet $white3
+    inactive_workspace $white1 $white1 $black3
+    urgent_workspace $magenta $magenta $white3
   }
 }
