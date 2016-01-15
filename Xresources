@@ -56,9 +56,9 @@ URxvt*fading: 20
 URxvt.depth: 32
 URxvt.intensityStyles: false
 
-URxvt*background: [96]S_base03
+URxvt*background: [92]S_base03
 URxvt*foreground: S_base0
-URxvt*fadeColor: [96]S_base03
+URxvt*fadeColor: [92]S_base03
 URxvt*cursorColor: S_base1
 URxvt*pointerColorBackground: S_base01
 URxvt*pointerColorForeground: S_base1
