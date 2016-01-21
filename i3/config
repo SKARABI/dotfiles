@@ -45,7 +45,6 @@ set $locker i3lock-wrapper
 set $launcher rofi
 
 set $compositor compton --config ~/.compton.conf
-set $notification_daemon dunst -conf ~/.i3/dunstrc
 
 ####################
 # General Settings #
@@ -72,13 +71,15 @@ gaps inner $gap_internal_size
 # Startup Applications #
 ########################
 
-exec --no-startup-id dropbox
-
 # Simple X compositor to improve menus focus
 exec --no-startup-id $compositor
 
-# Start MPD service
-exec --no-startup-id systemctl --user start mpd.service mpdscribble.service
+# Ensure user systemd services are started
+exec --no-startup-id systemctl --user start \
+  mpd.service \
+  mpdscribble.service \
+  dropbox.service \
+  dunst.service
 
 # Automatically turn-off display power saving when running fullscreen applications
 exec_always --no-startup-id disable-dpms-on-fullscreen-window
@@ -88,9 +89,6 @@ exec_always --no-startup-id feh --bg-fill $wallpaper
 
 # Set Xresources
 exec_always --no-startup-id xrdb ~/.Xresources
-
-# Notification handler
-exec_always --no-startup-id $notification_daemon
 
 # Automount removable media
 exec_always --no-startup-id udiskie --automount --notify --no-tray --use-udisks2
