@@ -17,6 +17,9 @@ alias lgm='lotus generate model'
 alias lga='lotus generate action'
 alias vim="nvim"
 
+alias gcpersonal='gcalcli --configFolder ~/.gcalcli/personal'
+alias gcwork='gcalcli --configFolder ~/.gcalcli/work'
+
 # Diff runs by @cotonerd
 alias diffcop="git diff --name-only | grep .rb | xargs --no-run-if-empty bundle exec rubocop";
 alias diffhaml="git diff --name-only | grep .haml | xargs --no-run-if-empty bundle exec haml-lint";
