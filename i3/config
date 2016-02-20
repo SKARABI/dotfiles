@@ -32,11 +32,11 @@ set $green #859900
 
 set $wallpaper ~/Pictures/Wallpapers/tetons-at-night.png
 
-set $border_size 4
-set $font Fira Mono Medium 11
+set $border_size 6
+set $font Fira Mono Medium 15
 
-set $barfont Fira Mono Medium 11
-set $bheight 24
+set $barfont Fira Mono Medium 15
+set $bheight 34
 
 set $gap_internal_size 15
 
@@ -91,10 +91,10 @@ exec_always --no-startup-id feh --bg-fill $wallpaper
 exec_always --no-startup-id xrdb ~/.Xresources
 
 # Automount removable media
-exec_always --no-startup-id udiskie --automount --notify --no-tray --use-udisks2
+# exec_always --no-startup-id udiskie --automount --notify --no-tray --use-udisks2
 
 # Alert Google Calendar Events
-exec_always --no-startup-id ./$HOME/.bin/gcevent-notifier
+# exec_always --no-startup-id ./$HOME/.bin/gcevent-notifier
 
 ##############
 # Scratchpad #

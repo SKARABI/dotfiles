@@ -5,17 +5,22 @@ sudo easy_install pip
 # i3wm bindings for python
 pip install i3ipc
 
+sudo yaourt -S --noconfirm i3-gaps-git i3lock i3blocks dunst compton feh imagemagick
+
 # Music Player Daemon
 sudo pacman -S --noconfirm mpd mpc
 
 # Control pulseaudio devices
-sudo pacman -S --noconfirm pavucontrol
+sudo pacman -S --noconfirm pavucontrol amixer
 
 # CLI tool to configure multiple diplays outputs
 sudo pacman -S --noconfirm xorg-xrandr
 
 # CLI Tool to control display brightness
 sudo pacman -S --noconfirm xorg-xbacklight
+
+# CLI Tool to control keyboardbrightness
+sudo yourt -S --noconfirm kbdlight
 
 # Powerful laucher and window switcher (better than dmenu)
 sudo pacman -S --noconfirm rofi
@@ -30,4 +35,4 @@ sudo pacman -S --noconfirm udiskie
 sudo pacman -S --noconfirm ranger w3m
 
 # General Dependencies
-sudo pacman -S --noconfirm ttf-fira-mono ttf-fira-sans urxvt-perls rxvt-unicode
+sudo pacman -S --noconfirm ttf-fira-mono ttf-fira-sans urxvt-perls rxvt-unicode scrot
