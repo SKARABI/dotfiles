@@ -1,0 +1,12 @@
+[Unit]
+Description=i3lock
+Before=sleep.target
+
+[Service]
+User=brennovich
+Type=forking
+Environment=DISPLAY=:0
+ExecStart=/home/brennovich/.bin/i3lock-wrapper
+
+[Install]
+WantedBy=sleep.target
