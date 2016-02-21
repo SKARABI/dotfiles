@@ -1,7 +1,7 @@
 # vim:ft=cfg
 
 [global]
-  font = "DejaVu Sans Mono Book 11"
+  font = "Fira Mono Medium 15"
   allow_markup = yes
 
   # The format of the message. Possible variables are:
@@ -19,7 +19,7 @@
   # Set to 0 to disable
   bounce_freq = 0
 
-  geometry = "300x20-8+32"
+  geometry = "420x20-16+42"
 
   shrink = no
   word_wrap = yes

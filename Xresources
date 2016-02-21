@@ -45,7 +45,7 @@ URxvt.letterSpace: -1
 
 ! UI
 URxvt*borderless: true
-URxvt.internalBorder: 5
+URxvt.internalBorder: 10
 URxvt*scrollBar: false
 URxvt*saveLines: 20000
 URxvt*dynamicColors: true

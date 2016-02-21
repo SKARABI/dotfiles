@@ -5,7 +5,7 @@ sudo easy_install pip
 # i3wm bindings for python
 pip install i3ipc
 
-sudo yaourt -S --noconfirm i3-gaps-git i3lock i3blocks dunst compton feh imagemagick
+sudo yaourt -S i3-gaps-git i3lock i3blocks dunst-git compton feh imagemagick
 
 # Music Player Daemon
 sudo pacman -S --noconfirm mpd mpc
