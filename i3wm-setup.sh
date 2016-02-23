@@ -35,4 +35,6 @@ sudo pacman -S --noconfirm udiskie
 sudo pacman -S --noconfirm ranger w3m
 
 # General Dependencies
-sudo pacman -S --noconfirm ttf-fira-mono ttf-fira-sans urxvt-perls rxvt-unicode scrot
+sudo pacman -S --noconfirm ttf-fira-mono ttf-fira-sans \
+  urxvt-perls rxvt-unicode \
+  scrot zathura zathura-pdf-mupdf zathura-ps zathura-djvu

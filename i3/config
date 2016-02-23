@@ -32,10 +32,10 @@ set $green #859900
 
 set $wallpaper ~/Pictures/Wallpapers/tetons-at-night.png
 
-set $border_size 6
-set $font Fira Mono Medium 15
+set $border_size 3
+set $font Fira Mono Medium 10
 
-set $barfont Fira Mono Medium 15
+set $barfont Fira Mono Medium 10
 set $bheight 34
 
 set $gap_internal_size 20
@@ -70,6 +70,9 @@ gaps inner $gap_internal_size
 ########################
 # Startup Applications #
 ########################
+
+# Power manager
+exec --no-startup-id xfce4-power-manager
 
 # Simple X compositor to improve menus focus
 exec --no-startup-id $compositor
@@ -187,8 +190,8 @@ bindsym $mod+Shift+r restart
 bindsym Control+Mod1+l exec --no-startup-id $locker
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 3
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 -steps 1
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 3 -steps 1
 
 # Keyboard backlit brightness
 bindsym XF86KbdBrightnessUp exec --no-startup-id kbdlight up 5
@@ -205,9 +208,12 @@ bindsym XF86AudioPlay exec --no-startup-id mpc toggle && pkill -RTMIN+12 i3block
 bindsym XF86AudioNext exec --no-startup-id mpc next && pkill -RTMIN+12 i3blocks
 bindsym XF86AudioPrev exec --no-startup-id mpc previous && pkill -RTMIN+12 i3blocks
 
+bindsym XF86PowerOff exec --no-startup-id $locker
+bindsym $mod+XF86PowerOff exec --no-startup-id systemctl suspend
+
 # Screenshots
-bindsym --release Shift+Print exec --no-startup-id scrot -s ~/Pictures/Screenshots/%y-%b-%d_%H%M%S.png
-bindsym --release Print exec --no-startup-id scrot ~/Pictures/Screenshots/%y-%b-%d_%H%M%S.png
+bindsym --release $mod+Shift+p exec --no-startup-id scrot -s ~/Pictures/Screenshots/%y-%b-%d_%H%M%S.png
+bindsym --release $mod+p exec --no-startup-id scrot ~/Pictures/Screenshots/%y-%b-%d_%H%M%S.png
 
 # Resize window (you can also use the mouse for that)
 mode "resize" {

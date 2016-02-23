@@ -7,7 +7,7 @@ Xft.dpi: 156
 
 ! Cursor
 Xcursor.theme: Adwaita
-Xcursor.size: 32
+Xcursor.size: 36
 
 ! Colors
 #define black3  #002b36
