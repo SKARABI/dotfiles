@@ -1,7 +1,7 @@
 # vim:ft=cfg
 
 [global]
-  font = "Fira Mono Medium 15"
+  font = "Fira Mono Medium 17"
   allow_markup = yes
 
   # The format of the message. Possible variables are:
