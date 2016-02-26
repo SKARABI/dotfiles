@@ -3,11 +3,11 @@
 !!!!!!!!!!!
 
 ! Fonts
-Xft.dpi: 156
+*.dpi: 175
 
 ! Cursor
 Xcursor.theme: Adwaita
-Xcursor.size: 36
+Xcursor.size: 42
 
 ! Colors
 #define black3  #002b36
@@ -87,8 +87,8 @@ URxvt*color15: white3
 URxvt.perl-ext: default,url-select,clipboard
 URxvt.perl-ext-common: default,matcher
 
-URxvt.keysym.Shift-Control-C: perl:clipboard:copy
-URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.keysym.Control-Alt-C: perl:clipboard:copy
+URxvt.keysym.Control-Alt-V: perl:clipboard:paste
 
 URxvt.url-launcher: /usr/bin/firefox
 URxvt.matcher.button: 1
@@ -97,7 +97,7 @@ URxvt.matcher.button: 1
 ! Rofi !
 !!!!!!!!
 
-rofi.font: Fira Mono Medium 17
+rofi.font: Fira Mono Medium 12
 rofi.lines: 3
 rofi.separator-style: none
 rofi.hide-scrollbar: true
