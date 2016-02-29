@@ -6,7 +6,7 @@ git submodule update
 for name in *; do
   target="$HOME/.$name"
 
-  if [[ ! "$name" =~ ^config$|.sh$|^system$|LICENSE|README ]]; then
+  if [[ ! "$name" =~ ^symbolic$|^config$|.sh$|^system$|LICENSE|README ]]; then
     echo "Creating $target"
     cp -rfT "$PWD/$name" "$target"
   fi
@@ -17,6 +17,15 @@ for name in config/*; do
 
   echo "Creating $target"
   cp -rfT "$PWD/$name" "$target"
+done
+
+for name in symbolic/*; do
+  target="$HOME/.$(basename $name)"
+
+  if [[ ! "$name" =~ \*$ ]]; then
+    echo "Linking $target"
+    ln -sf "$PWD/$name" "$target"
+  fi
 done
 
 if [ ! -f $HOME/.config/nvim/autoload/plug.vim ]; then

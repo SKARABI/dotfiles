@@ -21,3 +21,13 @@ mpd/playlists
 mpd/state
 mpd/sticker.sql
 *.log
+symbolic/emacs.d/elpa
+symbolic/emacs.d/cider-history
+symbolic/emacs.d/backups
+symbolic/emacs.d/ido.last
+symbolic/emacs.d/**/*~
+symbolic/emacs.d/.*
+symbolic/emacs.d/ido.last
+symbolic/emacs.d/places
+symbolic/emacs.d/eshell
+symbolic/emacs.d/projectile-bookmarks.eld
