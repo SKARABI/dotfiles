@@ -1,0 +1,14 @@
+[Unit]
+Description=Fix trackpad after resume
+After=suspend.target
+After=hibernate.target
+ 
+[Service]
+User=%I
+Type=simple
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/xinput -enable bcm5974
+ 
+[Install]
+WantedBy=suspend.target
+WantedBy=hibernate.target
