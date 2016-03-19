@@ -3,7 +3,7 @@
 !!!!!!!!!!!
 
 ! Fonts
-*.dpi: 175
+! *.dpi: 192 ! Disabled, respecting Xserver dpi config
 
 ! Cursor
 Xcursor.theme: Adwaita
@@ -33,17 +33,17 @@ Xcursor.size: 42
 !!!!!!!!!
 
 xterm*faceName: Fira Mono
-xterm*faceSize: 11
+xterm*faceSize: 10
 
 !!!!!!!!!
 ! URxvt !
 !!!!!!!!!
 
 ! Fonts
-URxvt.font: xft:Fira Mono:size=11,style=medium
-URxvt.boldFont: xft:Fira Mono:size=11,style=bold
-URxvt.italicFont: xft:Fira Mono:size=11,style=bold
-URxvt.boldItalicFont: xft:Fira Mono:size=11,style=bold
+URxvt.font: xft:Fira Mono:size=10,style=medium
+URxvt.boldFont: xft:Fira Mono:size=10,style=bold
+URxvt.italicFont: xft:Fira Mono:size=10,style=bold
+URxvt.boldItalicFont: xft:Fira Mono:size=10,style=bold
 URxvt.letterSpace: -1
 
 ! UI

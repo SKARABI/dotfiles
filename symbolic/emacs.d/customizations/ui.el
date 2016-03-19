@@ -73,16 +73,13 @@
 
 ;; Modeline
 
-;; Clears out borders and lines from mode-line
-(set-face-attribute 'mode-line nil :box nil :underline nil)
+;; Align and clears out borders and lines from mode-line
+(setq x-use-underline-position-properties nil)
+(setq underline-minimum-offset 9)
+(set-face-attribute 'mode-line nil :box '(:line-width 2))
+(set-face-attribute 'mode-line-inactive nil :box '(:line-width 2))
 
- ;; Spaceline. It's extracted from spacemacs project
+;; remove some clutter
 (require 'diminish)
-(require 'spaceline-config)
-
-(setq spaceline-workspace-numbers-unicode t)
-(setq spaceline-window-numbers-unicode t)
-(window-numbering-mode 1)
-(setq powerline-default-separator 'wave)
-
-(spaceline-emacs-theme)
+(eval-after-load "eldoc" '(diminish 'eldoc-mode))
+(eval-after-load "paredit" '(diminish 'paredit-mode))

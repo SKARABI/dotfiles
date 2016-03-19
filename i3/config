@@ -32,17 +32,12 @@ set $green #859900
 
 set $wallpaper ~/Pictures/Wallpapers/tetons-at-night.png
 
-set $border_size 2
-set $font Fira Mono Medium 10
+set $border_size 4
+set $font Fira Mono Medium 9
 
-set $barfont Fira Mono Medium 10
-set $bheight 38
-
-set $gap_internal_size 20
+set $barfont Fira Mono Medium 9
 
 set $locker ~/.bin/i3lock-wrapper
-
-set $launcher rofi
 
 set $compositor compton --config ~/.compton.conf
 
@@ -62,10 +57,6 @@ popup_during_fullscreen smart
 
 new_window pixel $border_size
 new_float pixel $border_size
-
-gaps inner $gap_internal_size
-# smart_gaps on
-# smart_borders on
 
 ########################
 # Startup Applications #
@@ -123,11 +114,8 @@ bindsym $mod+Return exec --no-startup-id $termnial
 # Kill focused window
 bindsym $mod+Shift+q kill
 
-# Start rofi (as program launcher)
-bindsym $mod+d exec --no-startup-id $launcher -show run
-
-# Start rofi (as window selector)
-bindsym $mod+Tab exec --no-startup-id $launcher -show window
+# Start dmenu (as program launcher)
+bindsym $mod+d exec --no-startup-id dmenu_run -i -nb \$white2 -nf \$black0 -sb \$white2 -sf \$orange -fn 'Fira Mono:style=medium:size=11'
 
 # Change focus
 bindsym $mod+h focus left
@@ -228,24 +216,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-mode "gaps" {
-  bindsym plus gaps inner current plus 5
-  bindsym minus gaps inner current minus 5
-
-  bindsym 0 gaps inner current set $gap_internal_size
-
-  # Not using outer gaps currently
-  # bindsym 7 gaps outer current set 0
-  # bindsym 5 gaps outer current set 0
-  # bindsym 9 gaps outer current plus 5
-  # bindsym 8 gaps outer current minus 5
-
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-}
-
-bindsym $mod+g mode "gaps"
-
 mode "move workspace" {
   bindsym h move workspace to output left
   bindsym j move workspace to output down
@@ -288,7 +258,7 @@ bar {
   tray_output eDP1
   separator_symbol " "
   position top
-  height $bheight
+  # height $bheight
   font pango:$barfont
 
   colors {

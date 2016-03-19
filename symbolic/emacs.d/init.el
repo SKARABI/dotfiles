@@ -26,17 +26,15 @@
 (defvar my-packages
   '(;; Themes
     solarized-theme
-    spaceline
 
     ;; tweak the output of the minor modes segment.
     diminish
 
-    ;; gives each visible window a number
-    window-numbering
-
     ;; makes handling lisp expressions much, much easier
     ;; Cheatsheet: http://www.emacswiki.org/emacs/PareditCheatsheet
     paredit
+
+    markdown-mode
 
     ;; key bindings and code colorization for Clojure
     ;; https://github.com/clojure-emacs/clojure-mode
