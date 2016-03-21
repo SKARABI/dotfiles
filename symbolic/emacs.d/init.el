@@ -34,7 +34,17 @@
     ;; Cheatsheet: http://www.emacswiki.org/emacs/PareditCheatsheet
     paredit
 
+    ;; markdown syntax hilighted and other goodies
     markdown-mode
+
+    ;; Ruby environment
+    inf-ruby
+    rbenv
+    rspec-mode
+
+    ;; still related with Ruby, but with general purpose
+    haml-mode
+    yaml-mode
 
     ;; key bindings and code colorization for Clojure
     ;; https://github.com/clojure-emacs/clojure-mode
@@ -46,6 +56,10 @@
     ;; integration with a Clojure REPL
     ;; https://github.com/clojure-emacs/cider
     cider
+
+    ;; try to infer the symbol your point is on and let you jump to
+    ;; other, identical, symbols elsewhere in your current buffer
+    smartscan
 
     ;; allow ido usage in as many contexts as possible. see
     ;; customizations/navigation.el line 23 for a description
@@ -59,12 +73,16 @@
 
     ;; project navigation
     projectile
+    projectile-rails
 
     ;; colorful parenthesis matching
     rainbow-delimiters
 
+    ;; HTML goodies
     ;; edit html tags like sexps
     tagedit
+    ;; major mode for web templates
+    web-mode
 
     ;; git integration
     magit))
@@ -120,12 +138,5 @@
 ;; These customizations make editing a bit nicer.
 (load "editing.el")
 
-;; Hard-to-categorize customizations
-(load "misc.el")
-
-;; For editing lisps
-(load "elisp-editing.el")
-
-;; Langauage-specific
-(load "setup-clojure.el")
-(load "setup-js.el")
+;; Languages specific customizations
+(load "modes.el")

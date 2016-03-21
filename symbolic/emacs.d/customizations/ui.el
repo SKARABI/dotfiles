@@ -22,14 +22,18 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
+;; Changes all yes/no questions to y/n type
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; Go straight to scratch buffer on startup
+(setq inhibit-startup-message t)
+
 ;; Color Themes
 ;; Read http://batsov.com/articles/2012/02/19/color-theming-in-emacs-reloaded/
 ;; for a great explanation of emacs color themes.
 ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Custom-Themes.html
 ;; for a more technical explanation.
-
-;; make the fringe stand out from the background
-(load-theme 'solarized-light t)
+(load-theme 'solarized-dark t)
 
 ;; increase font size for better readability
 (set-face-attribute 'default nil :font "Fira Mono 11" :height 110)
@@ -76,8 +80,8 @@
 ;; Align and clears out borders and lines from mode-line
 (setq x-use-underline-position-properties nil)
 (setq underline-minimum-offset 9)
-(set-face-attribute 'mode-line nil :box '(:line-width 2))
-(set-face-attribute 'mode-line-inactive nil :box '(:line-width 2))
+;; (set-face-attribute 'mode-line nil :box '(:line-width 1))
+;; (set-face-attribute 'mode-line-inactive nil :box '(:line-width 1))
 
 ;; remove some clutter
 (require 'diminish)

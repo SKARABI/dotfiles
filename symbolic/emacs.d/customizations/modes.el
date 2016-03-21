@@ -1,4 +1,81 @@
 ;;;;
+;; Ruby
+;;;;
+
+(require 'rbenv)
+(setq rbenv-show-active-ruby-in-modeline nil)
+(global-rbenv-mode)
+
+(require 'haml-mode)
+
+;; Rspec
+(require 'rspec-mode)
+;; I want rspec instead of rake spec
+(setq rspec-use-rake-when-possible nil)
+;; Scroll to the first test failure
+(setq compilation-scroll-output 'first-error)
+
+(add-hook 'projectile-mode-hook 'projectile-rails-on)
+(add-hook 'after-init-hook 'inf-ruby-switch-setup)
+
+;;;;
+;; Markdown
+;;;;
+(autoload 'markdown-mode "markdown-mode"
+  "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+;;;;
+;; HTML
+;;;;
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+
+(setq web-mode-enable-auto-pairing t)
+(setq web-mode-enable-current-column-highlight t)
+
+(defun my-web-mode-hook ()
+  "Hooks for Web mode for custom settings."
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2))
+(add-hook 'web-mode-hook  'my-web-mode-hook)
+
+;; ShellScript
+(setq-default sh-basic-offset 2)
+(setq-default sh-indentation 2)
+
+;; No need for ~ files when editing
+(setq create-lockfiles nil)
+
+;;;;
+;; Elisp
+;;;;
+
+;; Automatically load paredit when editing a lisp file
+;; More at http://www.emacswiki.org/emacs/ParEdit
+(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+(add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
+(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+(add-hook 'ielm-mode-hook             #'enable-paredit-mode)
+(add-hook 'lisp-mode-hook             #'enable-paredit-mode)
+(add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+
+;; eldoc-mode shows documentation in the minibuffer when writing code
+;; http://www.emacswiki.org/emacs/ElDoc
+(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
+
+;;;;
 ;; Clojure
 ;;;;
 
