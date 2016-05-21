@@ -30,7 +30,7 @@ set $blue #268bd2
 set $cyan #2aa198
 set $green #859900
 
-set $wallpaper ~/Pictures/Wallpapers/tetons-at-night.png
+set $wallpaper ~/Pictures/Wallpapers/republica.jpeg
 
 set $border_size 4
 set $font Fira Mono Medium 9
@@ -115,7 +115,7 @@ bindsym $mod+Return exec --no-startup-id $termnial
 bindsym $mod+Shift+q kill
 
 # Start dmenu (as program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run -i -nb \$white2 -nf \$black0 -sb \$white2 -sf \$orange -fn 'Fira Mono:style=medium:size=11'
+bindsym $mod+d exec --no-startup-id dmenu_run -i -b -nb \$white2 -nf \$black0 -sb \$white2 -sf \$orange -fn 'Fira Mono:style=medium:size=12'
 
 # Change focus
 bindsym $mod+h focus left
@@ -255,9 +255,9 @@ client.urgent $magenta $magenta $white2 $magenta
 
 bar {
   status_command i3blocks -c ~/.i3/i3blocks.conf
-  tray_output eDP1
+  tray_output primary
   separator_symbol " "
-  position top
+  position bottom
   # height $bheight
   font pango:$barfont
 

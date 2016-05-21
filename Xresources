@@ -7,7 +7,7 @@
 
 ! Cursor
 Xcursor.theme: Adwaita
-Xcursor.size: 42
+Xcursor.size: 32
 
 ! Colors
 #define black3  #002b36
@@ -33,17 +33,17 @@ Xcursor.size: 42
 !!!!!!!!!
 
 xterm*faceName: Fira Mono
-xterm*faceSize: 10
+xterm*faceSize: 11
 
 !!!!!!!!!
 ! URxvt !
 !!!!!!!!!
 
 ! Fonts
-URxvt.font: xft:Fira Mono:size=10,style=medium
-URxvt.boldFont: xft:Fira Mono:size=10,style=bold
-URxvt.italicFont: xft:Fira Mono:size=10,style=bold
-URxvt.boldItalicFont: xft:Fira Mono:size=10,style=bold
+URxvt.font: xft:Fira Mono:size=11,style=medium
+URxvt.boldFont: xft:Fira Mono:size=11,style=bold
+URxvt.italicFont: xft:Fira Mono:size=11,style=bold
+URxvt.boldItalicFont: xft:Fira Mono:size=11,style=bold
 URxvt.letterSpace: -1
 
 ! UI
@@ -59,9 +59,9 @@ URxvt*fading: 20
 URxvt.depth: 32
 URxvt.intensityStyles: false
 
-URxvt*background: [92]black3
+URxvt*background: [98]black3
 URxvt*foreground: black
-URxvt*fadeColor: [92]black3
+URxvt*fadeColor: [98]black3
 URxvt*cursorColor: white1
 URxvt*pointerColorBackground: black1
 URxvt*pointerColorForeground: white1
@@ -101,7 +101,7 @@ rofi.font: Fira Mono Medium 12
 rofi.lines: 3
 rofi.separator-style: none
 rofi.hide-scrollbar: true
-rofi.opacity: 92
+rofi.opacity: 96
 rofi.bw: 6
 rofi.padding: 10
 
