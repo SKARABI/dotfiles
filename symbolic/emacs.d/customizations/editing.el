@@ -76,3 +76,20 @@
     (quit nil)))
 
 (setq electric-indent-mode nil)
+
+;;;;
+;; CTags Goodies
+;;;;
+
+(defun build-ctags ()
+  (interactive)
+  (message "building project tags")
+  (shell-command (concat "ctags -e -R --extra=+fq --exclude=db --exclude=test --exclude=.git --exclude=public -f TAGS"))
+  (visit-project-tags)
+  (message "tags built successfully"))
+
+(defun visit-project-tags ()
+  (interactive)
+  (let ((tags-file "TAGS"))
+    (visit-tags-table tags-file)
+    (message (concat "Loaded " tags-file))))
