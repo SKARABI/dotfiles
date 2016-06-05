@@ -57,6 +57,9 @@
     ;; https://github.com/clojure-emacs/cider
     cider
 
+    ;; scala integration
+    ensime
+
     ;; try to infer the symbol your point is on and let you jump to
     ;; other, identical, symbols elsewhere in your current buffer
     smartscan
@@ -65,6 +68,10 @@
     ;; customizations/navigation.el line 23 for a description
     ;; of ido
     ido-ubiquitous
+
+    ;; emacs extensions
+    helm
+    org
 
     ;; Enhances M-x to allow easier execution of commands. Provides
     ;; a filterable list of possible commands in the minibuffer

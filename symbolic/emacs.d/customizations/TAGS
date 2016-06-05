@@ -1,0 +1,24 @@
+
+editing.el,268
+editing.el1,0
+(defun toggle-comment-on-line ()toggle-comment-on-line57,1848
+(defun die-tabs ()die-tabs64,2093
+(defun ns-get-pasteboard ()ns-get-pasteboard72,2274
+(defun build-ctags ()build-ctags84,2521
+(defun visit-project-tags ()visit-project-tags92,2871
+
+shell-integration.el,26
+shell-integration.el1,0
+
+ui.el,11
+ui.el1,0
+
+modes.el,227
+modes.el1,0
+(defun my-web-mode-hook ()my-web-mode-hook75,2545
+(defun cider-start-http-server ()cider-start-http-server168,5571
+(defun cider-refresh ()cider-refresh177,5895
+(defun cider-user-ns ()cider-user-ns181,5988
+
+navigation.el,19
+navigation.el1,0
