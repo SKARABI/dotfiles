@@ -1,1 +1,3 @@
 Control-l: clear-screen
+Control-n: next-history
+Control-p: previous-history
