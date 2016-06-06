@@ -1,1 +1,0 @@
-/home/brennovich/code/dotfiles/symbolic/emacs.d
