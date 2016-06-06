@@ -26,6 +26,7 @@
 (defvar my-packages
   '(;; Themes
     solarized-theme
+    monokai-theme
 
     ;; tweak the output of the minor modes segment.
     diminish
@@ -72,6 +73,7 @@
     ;; emacs extensions
     helm
     org
+    org-bullets
 
     ;; Enhances M-x to allow easier execution of commands. Provides
     ;; a filterable list of possible commands in the minibuffer

@@ -3,7 +3,12 @@
 ;;;
 
 ;; Helm
+
 (require 'helm-config)
+(require 'helm-tags)
+(require 'helm-etags+)
+(require 'ctags-update)
+
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x r b") 'helm-filtered-bookmarks)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
@@ -22,20 +27,29 @@
 (setq helm-semantic-fuzzy-match t
       helm-imenu-fuzzy-match    t)
 
-(when (executable-find "curl")
-  (setq helm-google-suggest-use-curl-p t))
-
 (setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
       helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
       helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
       helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
       helm-ff-file-name-history-use-recentf t)
 
+(autoload 'turn-on-ctags-auto-update-mode "ctags-update" "turn on 'ctags-auto-update-mode'." t)
+   (add-hook 'ruby-mode-hook  'turn-on-ctags-auto-update-mode)
+   (autoload 'ctags-update "ctags-update" "update TAGS using ctags" t)
+   (global-set-key "\C-cE" 'ctags-update)
+
 (helm-mode 1)
 
 ;; projectile
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
+
+;; Org-mode
+(require 'org)
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-cb" 'org-iswitchb)
 
 ;;;;
 ;; Scala

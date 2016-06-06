@@ -14,6 +14,13 @@
 ;; Show line numbers
 (setq linum-format " %d ")
 (global-linum-mode)
+(add-hook 'after-change-major-mode-hook
+          '(lambda ()
+             (linum-mode (if (or
+                              (equal major-mode 'text-mode)
+                              (equal major-mode 'term-mode)
+                              (equal major-mode 'help-mode)
+                              (equal major-mode 'org-mode)) 0 1))))
 
 ;; Display line number in statusbar
 (setq column-number-mode t)
@@ -33,6 +40,20 @@
 ;; for a great explanation of emacs color themes.
 ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Custom-Themes.html
 ;; for a more technical explanation.
+;; (load-theme 'monokai t)
+
+;; Don't change the font for some headings and titles
+(setq solarized-use-variable-pitch nil)
+
+;; Don't change size of org-mode headlines (but keep other size-changes)
+(setq solarized-scale-org-headlines nil)
+
+;; Avoid all font-size changes
+;; (setq solarized-height-minus-1 1)
+;; (setq solarized-height-plus-1 1)
+;; (setq solarized-height-plus-2 1)
+;; (setq solarized-height-plus-3 1)
+;; (setq solarized-height-plus-4 1)
 (load-theme 'solarized-dark t)
 
 ;; increase font size for better readability
@@ -87,3 +108,10 @@
 (require 'diminish)
 (eval-after-load "eldoc" '(diminish 'eldoc-mode))
 (eval-after-load "paredit" '(diminish 'paredit-mode))
+(eval-after-load "helm" '(diminish 'paredit-mode))
+
+;;; Org
+(setq org-src-fontify-natively t)
+
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
