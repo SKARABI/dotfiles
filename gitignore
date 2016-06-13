@@ -22,3 +22,6 @@ tmux-workspace
 .devstep/
 Cchfile
 .byebug_history
+*.ensime
+*.ensime_cache
+*ensime
