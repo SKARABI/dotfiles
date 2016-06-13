@@ -2,6 +2,10 @@
 ;; Extensions
 ;;;
 
+;; Evil
+(require 'evil)
+(evil-mode 1)
+
 ;; Helm
 
 (require 'helm-config)

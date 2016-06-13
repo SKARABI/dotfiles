@@ -24,7 +24,10 @@
 ;; manually with M-x package-install
 ;; Add in your own as you wish:
 (defvar my-packages
-  '(;; Themes
+  '(;; be evil
+    evil
+
+    ;; Themes
     solarized-theme
     monokai-theme
 
