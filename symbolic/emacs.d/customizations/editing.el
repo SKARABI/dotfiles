@@ -81,17 +81,3 @@
     (quit nil)))
 
 (setq electric-indent-mode nil)
-
-;;;;
-;; CTags Goodies
-;;;;
-
-(defun create-tags (dir-name)
-  "Create tags file recursively excluding some folders like .git"
-  (interactive "DDirectory: ")
-  (message (concat "Generating tags in: " (directory-file-name dir-name) "/TAGS"))
-  (shell-command
-   (concat "ctags -e -R --extra=+fq --exclude=coverage --exclude=db --exclude=test --exclude=coverage --exclude=.git --exclude=public -f "
-           (directory-file-name dir-name)
-           "/TAGS ."
-           (if (file-exists-p "Gemfile") ""))))
