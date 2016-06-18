@@ -31,6 +31,7 @@ call plug#begin('~/.nvim/plugged')
 
 Plug 'altercation/vim-colors-solarized'
 Plug 'benekastah/neomake'
+Plug 'evanmiller/nginx-vim-syntax'
 Plug 'guns/vim-sexp'
 Plug 'othree/html5.vim'
 Plug 'szw/vim-tags'
