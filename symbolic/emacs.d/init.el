@@ -26,10 +26,13 @@
 (defvar my-packages
   '(;; be evil
     evil
+    elscreen
 
     ;; Themes
     solarized-theme
     monokai-theme
+    zenburn-theme
+    white-sand-theme
 
     ;; tweak the output of the minor modes segment.
     diminish
@@ -45,6 +48,7 @@
     inf-ruby
     rbenv
     rspec-mode
+    rubocop
 
     ;; still related with Ruby, but with general purpose
     haml-mode
@@ -82,6 +86,9 @@
     ;; a filterable list of possible commands in the minibuffer
     ;; http://www.emacswiki.org/emacs/Smex
     smex
+
+    ;; editting goodies
+    aggressive-indent
 
     ;; project navigation
     projectile

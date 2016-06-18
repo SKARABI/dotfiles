@@ -40,7 +40,6 @@
 ;; for a great explanation of emacs color themes.
 ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Custom-Themes.html
 ;; for a more technical explanation.
-;; (load-theme 'monokai t)
 
 ;; Don't change the font for some headings and titles
 (setq solarized-use-variable-pitch nil)
@@ -48,16 +47,14 @@
 ;; Don't change size of org-mode headlines (but keep other size-changes)
 (setq solarized-scale-org-headlines nil)
 
-;; Avoid all font-size changes
-;; (setq solarized-height-minus-1 1)
-;; (setq solarized-height-plus-1 1)
-;; (setq solarized-height-plus-2 1)
-;; (setq solarized-height-plus-3 1)
-;; (setq solarized-height-plus-4 1)
-(load-theme 'solarized-dark t)
+(load-theme 'solarized-light t)
+;; (load-theme 'solarized-dark t)
+;; (load-theme 'monokai t)
+;; (load-theme 'zenburn t)
+;; (load-theme 'white-sand t)
 
 ;; increase font size for better readability
-(set-face-attribute 'default nil :font "Fira Mono 11" :height 110)
+(set-face-attribute 'default nil :font "Fira Mono 11")
 
 ;; Uncomment the lines below by removing semicolons and play with the
 ;; values in order to set the width (in characters wide) and height

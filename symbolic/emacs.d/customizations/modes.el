@@ -1,10 +1,34 @@
 ;;;;
-;; Extensions
+;; Extensions & Customizatons
 ;;;
+
+;;; eshell
+
+(custom-set-variables
+ '(eshell-visual-commands
+   (quote
+    ("vi" "screen" "top" "less" "more" "lynx" "ncftp" "pine" "tin" "trn" "elm" "vim" "less")))
+ '(eshell-visual-subcommands (quote (("git" "diff" "show" "log")))))
+
+;; Always indenting
+(require 'aggressive-indent)
+(global-aggressive-indent-mode 1)
 
 ;; Evil
 (require 'evil)
+
 (evil-mode 1)
+(define-key evil-insert-state-map "\C-y" 'yank) ;; paste normally in INSERT mode
+(define-key evil-normal-state-map "\C-]" 'helm-etags-select) ;; paste normally in INSERT mode
+
+;; VIm tabs
+(setq elscreen-display-tab nil)
+(elscreen-start)
+(load "elscreen" "ElScreen" t)
+(define-key evil-normal-state-map (kbd "C-w t") 'elscreen-create)
+(define-key evil-normal-state-map (kbd "C-w x") 'elscreen-kill)
+(define-key evil-normal-state-map "gT" 'elscreen-previous)
+(define-key evil-normal-state-map "gt" 'elscreen-next)
 
 ;; Helm
 
@@ -38,9 +62,9 @@
       helm-ff-file-name-history-use-recentf t)
 
 (autoload 'turn-on-ctags-auto-update-mode "ctags-update" "turn on 'ctags-auto-update-mode'." t)
-   (add-hook 'ruby-mode-hook  'turn-on-ctags-auto-update-mode)
-   (autoload 'ctags-update "ctags-update" "update TAGS using ctags" t)
-   (global-set-key "\C-cE" 'ctags-update)
+(add-hook 'ruby-mode-hook  'turn-on-ctags-auto-update-mode)
+(autoload 'ctags-update "ctags-update" "update TAGS using ctags" t)
+(global-set-key "\C-cE" 'ctags-update)
 
 (helm-mode 1)
 
@@ -59,8 +83,11 @@
 ;; Scala
 ;;;;
 
+(setq ensime-use-helm t)
+
 (require 'scala-mode)
 (require 'ensime)
+
 
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 (add-hook 'scala-mode-hook 'ensime-mode)
@@ -72,6 +99,7 @@
 ;;;;
 
 (require 'rbenv)
+
 (setq rbenv-show-active-ruby-in-modeline nil)
 (global-rbenv-mode)
 
@@ -79,10 +107,9 @@
 
 ;; Rspec
 (require 'rspec-mode)
-;; I want rspec instead of rake spec
-(setq rspec-use-rake-when-possible nil)
-;; Scroll to the first test failure
-(setq compilation-scroll-output 'first-error)
+
+(setq rspec-use-rake-when-possible nil) ;; I want rspec instead of rake spec
+(setq compilation-scroll-output 'first-error) ;; Scroll to the first test failure
 
 (add-hook 'projectile-mode-hook 'projectile-rails-on)
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
@@ -110,12 +137,16 @@
 (autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
 (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
 
+(require 'rubocop)
+(add-hook 'ruby-mode-hook 'rubocop-mode)
+
 ;;;;
 ;; Markdown
 ;;;;
 
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
+
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
@@ -196,9 +227,7 @@
             (define-clojure-indent (fact 1))
             (define-clojure-indent (facts 1))))
 
-;;;;
 ;; Cider
-;;;;
 
 ;; provides minibuffer documentation for the code you're typing into the repl
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
@@ -251,3 +280,10 @@
      (define-key clojure-mode-map (kbd "C-M-r") 'cider-refresh)
      (define-key clojure-mode-map (kbd "C-c u") 'cider-user-ns)
      (define-key cider-mode-map (kbd "C-c u") 'cider-user-ns)))
+
+;;;;
+;; Magit
+;;;;
+
+;; Quick open magit status
+(global-set-key (kbd "C-c C-g") 'magit-status)
