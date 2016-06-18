@@ -5,22 +5,18 @@
 ;; preferences
 
 ;; Set some padding to emacs window
-(set-frame-parameter nil 'internal-border-width 12)
+(set-frame-parameter nil 'internal-border-width 6)
 
 ;; Turn off the menu bar and tool bar at the top of each frame because it's distracting
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 
-;; Show line numbers
+;; Show line numbers except when in certain modes
 (setq linum-format " %d ")
-(global-linum-mode)
-(add-hook 'after-change-major-mode-hook
-          '(lambda ()
-             (linum-mode (if (or
-                              (equal major-mode 'text-mode)
-                              (equal major-mode 'term-mode)
-                              (equal major-mode 'help-mode)
-                              (equal major-mode 'org-mode)) 0 1))))
+(setq disabled-num-modes '(eshell-mode org-mode term-mode helm-mode magit-mode))
+
+(add-hook 'focus-in-hook (lambda () (linum-mode
+                                     (if (member major-mode disabled-num-modes) 0 1))))
 
 ;; Display line number in statusbar
 (setq column-number-mode t)
@@ -96,19 +92,24 @@
 ;; Modeline
 
 ;; Align and clears out borders and lines from mode-line
-(setq x-use-underline-position-properties nil)
-(setq underline-minimum-offset 9)
-;; (set-face-attribute 'mode-line nil :box '(:line-width 1))
-;; (set-face-attribute 'mode-line-inactive nil :box '(:line-width 1))
+;; (setq x-use-underline-position-properties 1)
+(setq underline-minimum-offset 10)
+(set-face-attribute 'mode-line nil :box '(:line-width 2))
+(set-face-attribute 'mode-line-inactive nil :box '(:line-width 2))
 
 ;; remove some clutter
 (require 'diminish)
 (eval-after-load "eldoc" '(diminish 'eldoc-mode))
 (eval-after-load "paredit" '(diminish 'paredit-mode))
-(eval-after-load "helm" '(diminish 'paredit-mode))
+(eval-after-load "helm" '(diminish 'helm-mode))
+(eval-after-load "undo tree" '(diminish 'undo-tree-mode))
 
 ;;; Org
 (setq org-src-fontify-natively t)
 
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+;;; Helm
+(custom-set-faces
+ '(helm-source-header ((t (:background "#fdf6e3" :foreground "#d33682" :weight extra-bold)))))
