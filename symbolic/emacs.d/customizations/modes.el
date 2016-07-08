@@ -3,19 +3,31 @@
 ;;;
 
 ;;; eshell
-
 (custom-set-variables
- '(eshell-visual-commands
+ '(eshell-visual
    (quote
-    ("vi" "screen" "top" "less" "more" "lynx" "ncftp" "pine" "tin" "trn" "elm" "vim" "less")))
+    ("vi" "screen" "top" "less" "more" "lynx" "ncftp" "pine" "tin" "trn" "elm" "vim" "less" "yaourt")))
  '(eshell-visual-subcommands (quote (("git" "diff" "show" "log")))))
 
-;; Always indenting
-(require 'aggressive-indent)
-(global-aggressive-indent-mode 1)
+;; Whitespace mode
+(setq whitespace-line-column 120)
+(setq whitespace-style (quote (tabs newline tab-mark newline-mark)))
+(setq whitespace-display-mappings
+      '((space-mark 32 [183] [46])
+        (newline-mark 10 [172 10])))
+(global-whitespace-mode 1)
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+
+;;; Flycheck
+(require 'flycheck)
+(global-flycheck-mode)
 
 ;; Evil
 (require 'evil)
+(require 'evil-surround)
+(global-evil-surround-mode 1)
 
 (evil-mode 1)
 (define-key evil-insert-state-map "\C-y" 'yank) ;; paste normally in INSERT mode
@@ -100,6 +112,7 @@
 
 (require 'rbenv)
 
+(setq ruby-insert-encoding-magic-comment nil)
 (setq rbenv-show-active-ruby-in-modeline nil)
 (global-rbenv-mode)
 
@@ -287,3 +300,12 @@
 
 ;; Quick open magit status
 (global-set-key (kbd "C-c C-g") 'magit-status)
+
+;; remove some clutter
+(require 'diminish)
+(eval-after-load "eldoc" '(diminish 'eldoc-mode))
+(eval-after-load "paredit" '(diminish 'paredit-mode))
+(eval-after-load "helm" '(diminish 'helm-mode))
+(eval-after-load "undo tree" '(diminish 'undo-tree-mode))
+(eval-after-load "projectile" '(diminish 'projectile-mode))
+(eval-after-load "rubocop" '(diminish 'rubocop-mode))

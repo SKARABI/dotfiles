@@ -12,8 +12,10 @@
 (tool-bar-mode -1)
 
 ;; Show line numbers except when in certain modes
-(setq linum-format " %d ")
-(setq disabled-num-modes '(eshell-mode org-mode term-mode helm-mode magit-mode))
+(setq-default left-fringe-width  6)
+(setq-default right-fringe-width  0)
+(setq linum-format "\u2002%d")
+(setq disabled-num-modes '(eshell-mode org-mode term-mode helm-mode magit-mode sbt-mode))
 
 (add-hook 'focus-in-hook (lambda () (linum-mode
                                      (if (member major-mode disabled-num-modes) 0 1))))
@@ -97,12 +99,10 @@
 (set-face-attribute 'mode-line nil :box '(:line-width 2))
 (set-face-attribute 'mode-line-inactive nil :box '(:line-width 2))
 
-;; remove some clutter
-(require 'diminish)
-(eval-after-load "eldoc" '(diminish 'eldoc-mode))
-(eval-after-load "paredit" '(diminish 'paredit-mode))
-(eval-after-load "helm" '(diminish 'helm-mode))
-(eval-after-load "undo tree" '(diminish 'undo-tree-mode))
+;; Window frame separator style
+; (set-frame-parameter (selected-frame) 'right-divider-width 0)
+; (set-face-background 'vertical-border "#eee8d5")
+; (set-face-foreground 'vertical-border (face-background 'vertical-border)))
 
 ;;; Org
 (setq org-src-fontify-natively t)

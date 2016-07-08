@@ -7,7 +7,7 @@
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))
 (add-to-list 'package-archives
-	     '("gnu" . "http://elpa.gnu.org/packages/"))
+             '("gnu" . "http://elpa.gnu.org/packages/"))
 
 ;; Load and activate emacs packages. Do this first so that the
 ;; packages are loaded before you start trying to modify them.
@@ -27,6 +27,7 @@
   '(;; be evil
     evil
     elscreen
+    evil-surround
 
     ;; Themes
     solarized-theme
@@ -47,6 +48,7 @@
     ;; Ruby environment
     inf-ruby
     rbenv
+    minitest
     rspec-mode
     rubocop
 
@@ -81,14 +83,19 @@
     helm
     org
     org-bullets
+    whitespace
+    flycheck
+    flycheck-rust
+    flycheck-clojure
+
+    swift-mode
+    go-mode
+    rust-mode
 
     ;; Enhances M-x to allow easier execution of commands. Provides
     ;; a filterable list of possible commands in the minibuffer
     ;; http://www.emacswiki.org/emacs/Smex
     smex
-
-    ;; editting goodies
-    aggressive-indent
 
     ;; project navigation
     projectile
@@ -129,7 +136,7 @@
 ;;
 ;; (require 'yaml-mode)
 ;; (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
-;; 
+;;
 ;; Adding this code will make Emacs enter yaml mode whenever you open
 ;; a .yml file
 (add-to-list 'load-path "~/.emacs.d/vendor")
