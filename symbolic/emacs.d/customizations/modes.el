@@ -46,8 +46,6 @@
 
 (require 'helm-config)
 (require 'helm-tags)
-(require 'helm-etags+)
-(require 'ctags-update)
 
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x r b") 'helm-filtered-bookmarks)
@@ -95,16 +93,15 @@
 ;; Scala
 ;;;;
 
-(setq ensime-use-helm t)
 
-(require 'scala-mode)
 (require 'ensime)
 
-
-(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
-(add-hook 'scala-mode-hook 'ensime-mode)
-(add-hook 'scala-mode-hook 'subword-mode)
-(add-hook 'scala-mode-hook 'paredit)
+(setq ensime-startup-snapshot-notification nil)
+(add-hook 'scala-mode-hook
+          (lambda ()
+            (setq ensime-use-helm t)
+            (ensime-mode)
+            ))
 
 ;;;;
 ;; Ruby
