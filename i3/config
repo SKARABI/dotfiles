@@ -68,6 +68,9 @@ exec_always --no-startup-id xfce4-power-manager
 # Simple X compositor to improve menus focus
 exec --no-startup-id $compositor
 
+# Custom color profile
+exec --no-startup-id ~/code/dotfiles/ColorLCD.icc
+
 # Ensure user systemd services are started
 exec --no-startup-id systemctl --user start \
   mpd.service \
@@ -115,7 +118,7 @@ bindsym $mod+Return exec --no-startup-id $termnial
 bindsym $mod+Shift+q kill
 
 # Start dmenu (as program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run -i -b -nb \$white2 -nf \$black0 -sb \$white2 -sf \$orange -fn 'Fira Mono:style=medium:size=12'
+bindsym $mod+d exec --no-startup-id dmenu_run -i -nb \$white2 -nf \$black0 -sb \$white2 -sf \$orange -fn 'Fira Mono:style=medium:size=11'
 
 # Change focus
 bindsym $mod+h focus left
@@ -196,6 +199,10 @@ bindsym XF86AudioPlay exec --no-startup-id mpc toggle && pkill -RTMIN+12 i3block
 bindsym XF86AudioNext exec --no-startup-id mpc next && pkill -RTMIN+12 i3blocks
 bindsym XF86AudioPrev exec --no-startup-id mpc previous && pkill -RTMIN+12 i3blocks
 
+bindsym Control+$mod+Mod1+space exec --no-startup-id mpc toggle && pkill -RTMIN+12 i3blocks
+bindsym Control+$mod+Mod1+n exec --no-startup-id mpc next && pkill -RTMIN+12 i3blocks
+bindsym Control+$mod+Mod1+p exec --no-startup-id mpc previous && pkill -RTMIN+12 i3blocks
+
 bindsym XF86PowerOff exec --no-startup-id $locker
 bindsym $mod+XF86PowerOff exec --no-startup-id systemctl suspend
 
@@ -256,8 +263,8 @@ client.urgent $magenta $magenta $white2 $magenta
 bar {
   status_command i3blocks -c ~/.i3/i3blocks.conf
   tray_output primary
-  separator_symbol " "
-  position bottom
+  position top
+  # separator_symbol " "
   # height $bheight
   font pango:$barfont
 
