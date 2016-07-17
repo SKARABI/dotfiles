@@ -7,7 +7,7 @@
 
 ! Cursor
 Xcursor.theme: Adwaita
-Xcursor.size: 32
+Xcursor.size: 28
 
 ! Colors
 #define black3  #002b36
@@ -53,7 +53,7 @@ URxvt*scrollBar: false
 URxvt*saveLines: 20000
 URxvt*dynamicColors: true
 URxvt*termName: rxvt-unicode
-URxvt*fading: 20
+URxvt*fading: 10
 
 ! Colors
 URxvt.depth: 32

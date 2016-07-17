@@ -39,6 +39,7 @@ export TERM=rxvt-unicode-256color
 export HISTSIZE=5000
 
 export PATH=$HOME/.bin:$PATH
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 
 source ~/.aliases
 source ~/.rbenvrc
