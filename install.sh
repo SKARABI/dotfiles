@@ -3,6 +3,10 @@
 git submodule init
 git submodule update
 
+if [ ! -d ~/.mpd ]; then
+  mkdir ~/.mpd
+fi
+
 for name in *; do
   target="$HOME/.$name"
 
