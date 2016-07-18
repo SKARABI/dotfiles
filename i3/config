@@ -30,15 +30,14 @@ set $blue #268bd2
 set $cyan #2aa198
 set $green #859900
 
-set $wallpaper ~/Pictures/Wallpapers/republica.jpeg
+set $wallpaper ~/Pictures/Wallpapers/tetons-at-night.png
 
-set $border_size 4
 set $font Fira Mono Medium 9
-
 set $barfont Fira Mono Medium 9
 
-set $locker ~/.bin/i3lock-wrapper
+set $border_size 4
 
+set $locker ~/.bin/i3lock-wrapper
 set $compositor compton --config ~/.compton.conf
 
 ####################
@@ -57,6 +56,10 @@ popup_during_fullscreen smart
 
 new_window pixel $border_size
 new_float pixel $border_size
+
+gaps inner 15
+smart_gaps on
+# smart_borders on
 
 ########################
 # Startup Applications #
