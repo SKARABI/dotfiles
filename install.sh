@@ -10,7 +10,7 @@ fi
 for name in *; do
   target="$HOME/.$name"
 
-  if [[ ! "$name" =~ ^symbolic$|^config$|.sh$|^system$|LICENSE|README ]]; then
+  if [[ ! "$name" =~ ^symbolic$|^config$|.sh$|^system$|LICENSE|README|ColorLCD|wallpapers ]]; then
     echo "Creating $target"
     cp -rfT "$PWD/$name" "$target"
   fi

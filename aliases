@@ -26,6 +26,10 @@ alias diffhaml="git diff --name-only | grep .haml | xargs --no-run-if-empty bund
 alias diffspec="git diff --name-only | grep .rb | sed 's/app\//spec\//g' | sed 's/\.rb/_spec\.rb/g' | sed 's/_spec_spec/_spec/g' | sort -u | xargs --no-run-if-empty bundle exec rspec";
 alias cotocheck="diffcop && diffhaml && diffspec"
 
+alias viva-standdesk="xrandr --output LVDS1 --off --output DP1 --auto --primary"
+alias viva-presentation="xrandr --output LVDS1 --auto --primary --output DP1 --auto --above LVDS1"
+alias viva-normal="xrandr --output LVDS1 --auto --primary --output DP1 --off"
+
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   alias ls='ls --color'
 fi

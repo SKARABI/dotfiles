@@ -3,8 +3,7 @@
 # Simple script to pull Google Calendar events reminders
 
 while true; do
-  gcalcli --configFolder $HOME/.gcalcli/personal remind
-  gcalcli --configFolder $HOME/.gcalcli/work remind
+  gcalcli remind --calendar="Brenno Costa"
 
   sleep 300
 done

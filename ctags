@@ -17,3 +17,6 @@
 --exclude=doc
 --exclude=vendor/bundle
 --exclude=vendor/assets
+--exclude=.ensime_cache
+--exclude=.ensime
+--exclude=target

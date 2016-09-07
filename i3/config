@@ -30,7 +30,7 @@ set $blue #268bd2
 set $cyan #2aa198
 set $green #859900
 
-set $wallpaper ~/Pictures/Wallpapers/tetons-at-night.png
+set $wallpaper ~/code/dotfiles/wallpapers/buildings/jpg
 
 set $font Fira Mono Medium 9
 set $barfont Fira Mono Medium 9
@@ -72,7 +72,7 @@ exec_always --no-startup-id xfce4-power-manager
 exec --no-startup-id $compositor
 
 # Custom color profile
-exec --no-startup-id ~/code/dotfiles/ColorLCD.icc
+exec_always --no-startup-id xcalib ~/code/dotfiles/ColorLCD.icc
 
 # Ensure user systemd services are started
 exec --no-startup-id systemctl --user start \
@@ -94,7 +94,7 @@ exec_always --no-startup-id xrdb ~/.Xresources
 # exec_always --no-startup-id udiskie --automount --notify --no-tray --use-udisks2
 
 # Alert Google Calendar Events
-# exec_always --no-startup-id ./$HOME/.bin/gcevent-notifier
+exec --no-startup-id ~/.bin/gcevent-notifier
 
 ##############
 # Scratchpad #
@@ -184,8 +184,8 @@ bindsym $mod+Shift+r restart
 bindsym Control+Mod1+l exec --no-startup-id $locker
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 -steps 1
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 3 -steps 1
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 3
 
 # Keyboard backlit brightness
 bindsym XF86KbdBrightnessUp exec --no-startup-id kbdlight up 5
